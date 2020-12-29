@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Product>USB OTG File Reader</Product>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Copyright>Copyright © 2020 Michael Fink</Copyright>
+    <Company></Company>
+  </PropertyGroup>
+</Project>
