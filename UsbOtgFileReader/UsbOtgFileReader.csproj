@@ -109,6 +109,9 @@
       <Version>2.2.0.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib">
+      <Version>1.4.20</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\UsbDeviceListActivity.xml">
