@@ -5,6 +5,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using Com.Github.Mjdev.Libaums;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
 using System;
 
 namespace UsbOtgFileReader
@@ -18,6 +21,11 @@ namespace UsbOtgFileReader
     ////[MetaData(UsbManager.ActionUsbDeviceAttached, Resource = "@xml/device_filter")]
     public partial class UsbDeviceListActivity : Activity
     {
+        /// <summary>
+        /// AppCenter key for the Android version
+        /// </summary>
+        private const string AppCenterAndroidKey = "8b3d8c7b-6168-4e26-b16c-e4e7eddfe6f2";
+
         /// <summary>
         /// USB manager instance
         /// </summary>
@@ -40,6 +48,11 @@ namespace UsbOtgFileReader
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            AppCenter.Start(
+                AppCenterAndroidKey,
+                typeof(Distribute),
+                typeof(Crashes));
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
