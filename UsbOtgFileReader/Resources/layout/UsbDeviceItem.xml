@@ -23,7 +23,7 @@
             android:src="@drawable/usb"
             android:minHeight="32dp"
             android:minWidth="32dp"
-            android:fillColor="@color/colorIconPathFill" />
+            android:tint="@color/colorIconPathFill" />
 
         <TextView
             android:layout_width="match_parent"
