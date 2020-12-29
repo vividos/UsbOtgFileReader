@@ -25,6 +25,27 @@ namespace UsbOtgFileReader
 		
 		public static void UpdateIdValues()
 		{
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_dialog_actioned_on_disabled_toast = global::UsbOtgFileReader.Resource.String.appcenter_distribute_dialog_actioned_on_disabled_toast;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_download_progress_number_format = global::UsbOtgFileReader.Resource.String.appcenter_distribute_download_progress_number_format;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_downloading_error = global::UsbOtgFileReader.Resource.String.appcenter_distribute_downloading_error;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_downloading_mandatory_update = global::UsbOtgFileReader.Resource.String.appcenter_distribute_downloading_mandatory_update;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_downloading_update = global::UsbOtgFileReader.Resource.String.appcenter_distribute_downloading_update;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_install = global::UsbOtgFileReader.Resource.String.appcenter_distribute_install;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_install_ready_message = global::UsbOtgFileReader.Resource.String.appcenter_distribute_install_ready_message;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_install_ready_title = global::UsbOtgFileReader.Resource.String.appcenter_distribute_install_ready_title;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_notification_category = global::UsbOtgFileReader.Resource.String.appcenter_distribute_notification_category;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_unknown_sources_dialog_message = global::UsbOtgFileReader.Resource.String.appcenter_distribute_unknown_sources_dialog_message;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_unknown_sources_dialog_settings = global::UsbOtgFileReader.Resource.String.appcenter_distribute_unknown_sources_dialog_settings;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_dialog_download = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_dialog_download;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_dialog_message_mandatory = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_dialog_message_mandatory;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_dialog_message_optional = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_dialog_message_optional;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_dialog_postpone = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_dialog_postpone;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_dialog_title = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_dialog_title;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_dialog_view_release_notes = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_dialog_view_release_notes;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_ignore = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_failed_dialog_ignore;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_message = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_failed_dialog_message;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_reinstall = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_failed_dialog_reinstall;
+			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_title = global::UsbOtgFileReader.Resource.String.appcenter_distribute_update_failed_dialog_title;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::UsbOtgFileReader.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::UsbOtgFileReader.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::UsbOtgFileReader.Resource.Attribute.fontProviderAuthority;
@@ -3115,38 +3136,101 @@ namespace UsbOtgFileReader
 			// aapt resource value: 0x7F0D001A
 			public const int abc_toolbar_collapse_description = 2131558426;
 			
+			// aapt resource value: 0x7F0D001C
+			public const int appcenter_distribute_dialog_actioned_on_disabled_toast = 2131558428;
+			
+			// aapt resource value: 0x7F0D001E
+			public const int appcenter_distribute_downloading_error = 2131558430;
+			
+			// aapt resource value: 0x7F0D001F
+			public const int appcenter_distribute_downloading_mandatory_update = 2131558431;
+			
+			// aapt resource value: 0x7F0D0020
+			public const int appcenter_distribute_downloading_update = 2131558432;
+			
+			// aapt resource value: 0x7F0D001D
+			public const int appcenter_distribute_download_progress_number_format = 2131558429;
+			
+			// aapt resource value: 0x7F0D0021
+			public const int appcenter_distribute_install = 2131558433;
+			
+			// aapt resource value: 0x7F0D0022
+			public const int appcenter_distribute_install_ready_message = 2131558434;
+			
+			// aapt resource value: 0x7F0D0023
+			public const int appcenter_distribute_install_ready_title = 2131558435;
+			
+			// aapt resource value: 0x7F0D0024
+			public const int appcenter_distribute_notification_category = 2131558436;
+			
+			// aapt resource value: 0x7F0D0025
+			public const int appcenter_distribute_unknown_sources_dialog_message = 2131558437;
+			
+			// aapt resource value: 0x7F0D0026
+			public const int appcenter_distribute_unknown_sources_dialog_settings = 2131558438;
+			
+			// aapt resource value: 0x7F0D0027
+			public const int appcenter_distribute_update_dialog_download = 2131558439;
+			
+			// aapt resource value: 0x7F0D0028
+			public const int appcenter_distribute_update_dialog_message_mandatory = 2131558440;
+			
+			// aapt resource value: 0x7F0D0029
+			public const int appcenter_distribute_update_dialog_message_optional = 2131558441;
+			
+			// aapt resource value: 0x7F0D002A
+			public const int appcenter_distribute_update_dialog_postpone = 2131558442;
+			
+			// aapt resource value: 0x7F0D002B
+			public const int appcenter_distribute_update_dialog_title = 2131558443;
+			
+			// aapt resource value: 0x7F0D002C
+			public const int appcenter_distribute_update_dialog_view_release_notes = 2131558444;
+			
+			// aapt resource value: 0x7F0D002D
+			public const int appcenter_distribute_update_failed_dialog_ignore = 2131558445;
+			
+			// aapt resource value: 0x7F0D002E
+			public const int appcenter_distribute_update_failed_dialog_message = 2131558446;
+			
+			// aapt resource value: 0x7F0D002F
+			public const int appcenter_distribute_update_failed_dialog_reinstall = 2131558447;
+			
+			// aapt resource value: 0x7F0D0030
+			public const int appcenter_distribute_update_failed_dialog_title = 2131558448;
+			
 			// aapt resource value: 0x7F0D001B
 			public const int app_name = 2131558427;
 			
-			// aapt resource value: 0x7F0D001C
-			public const int copy_toast_msg = 2131558428;
+			// aapt resource value: 0x7F0D0031
+			public const int copy_toast_msg = 2131558449;
 			
-			// aapt resource value: 0x7F0D001D
-			public const int fallback_menu_item_copy_link = 2131558429;
+			// aapt resource value: 0x7F0D0032
+			public const int fallback_menu_item_copy_link = 2131558450;
 			
-			// aapt resource value: 0x7F0D001E
-			public const int fallback_menu_item_open_in_browser = 2131558430;
+			// aapt resource value: 0x7F0D0033
+			public const int fallback_menu_item_open_in_browser = 2131558451;
 			
-			// aapt resource value: 0x7F0D001F
-			public const int fallback_menu_item_share_link = 2131558431;
+			// aapt resource value: 0x7F0D0034
+			public const int fallback_menu_item_share_link = 2131558452;
 			
-			// aapt resource value: 0x7F0D0020
-			public const int file_item_download_text = 2131558432;
+			// aapt resource value: 0x7F0D0035
+			public const int file_item_download_text = 2131558453;
 			
-			// aapt resource value: 0x7F0D0021
-			public const int search_menu_title = 2131558433;
+			// aapt resource value: 0x7F0D0036
+			public const int search_menu_title = 2131558454;
 			
-			// aapt resource value: 0x7F0D0022
-			public const int start_usb_scan_text = 2131558434;
+			// aapt resource value: 0x7F0D0037
+			public const int start_usb_scan_text = 2131558455;
 			
-			// aapt resource value: 0x7F0D0023
-			public const int status_bar_notification_info_overflow = 2131558435;
+			// aapt resource value: 0x7F0D0038
+			public const int status_bar_notification_info_overflow = 2131558456;
 			
-			// aapt resource value: 0x7F0D0024
-			public const int usb_device_name_text = 2131558436;
+			// aapt resource value: 0x7F0D0039
+			public const int usb_device_name_text = 2131558457;
 			
-			// aapt resource value: 0x7F0D0025
-			public const int usb_folder_or_file_name = 2131558437;
+			// aapt resource value: 0x7F0D003A
+			public const int usb_folder_or_file_name = 2131558458;
 			
 			static String()
 			{
