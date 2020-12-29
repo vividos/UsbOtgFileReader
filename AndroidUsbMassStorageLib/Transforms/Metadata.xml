@@ -1,0 +1,58 @@
+﻿<metadata>
+  <!-- rename some return types -->
+  <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='Fat32FileSystem']/method[@name='getRootDirectory']"
+        name="return">com.github.mjdev.libaums.fs.UsbFile</attr>
+  <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatDirectory']/method[@name='getParent']"
+        name="return">com.github.mjdev.libaums.fs.UsbFile</attr>
+  <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatDirectory']/method[@name='createFile']"
+        name="return">com.github.mjdev.libaums.fs.UsbFile</attr>
+  <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatDirectory']/method[@name='createDirectory']"
+        name="return">com.github.mjdev.libaums.fs.UsbFile</attr>
+  <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatFile']/method[@name='getParent']"
+        name="return">com.github.mjdev.libaums.fs.UsbFile</attr>
+
+  <!-- remove field that also has setter and getter methods -->
+  <remove-node path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/field[@name='partitions']" />
+
+  <!-- remove Close() method that is also present in ICloseable base class -->
+  <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs']/interface[@name='UsbFile']/method[@name='close' and count(parameter)=0]" />
+
+  <!-- remove some classes not useful for C# -->
+  <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatFile.initChain.1']" />
+  <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatDirectory.init.1']" />
+
+  <!-- remove Companion fields and classes -->
+  <remove-node path="/api/package/class/field[@name='Companion']" />
+  <remove-node path="/api/package/interface/field[@name='Companion']" />
+  <remove-node path="/api/package/class[@name='UsbMassStorageDevice.Companion']" />
+  <remove-node path="/api/package/class[@name='ByteBlockDevice.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiBlockDevice.Companion']" />
+  <remove-node path="/api/package/class[@name='CommandBlockWrapper.Companion']" />
+  <remove-node path="/api/package/class[@name='CommandStatusWrapper.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiInquiry.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiInquiryResponse.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiRead10.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiReadCapacity.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiReadCapacityResponse.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiRequestSense.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiTestUnitReady.Companion']" />
+  <remove-node path="/api/package/class[@name='ScsiWrite10.Companion']" />
+  <remove-node path="/api/package/class[@name='AbstractUsbFile.Companion']" />
+  <remove-node path="/api/package/class[@name='UsbFile.Companion']" />
+  <remove-node path="/api/package/class[@name='UsbFileInputStream.Companion']" />
+  <remove-node path="/api/package/class[@name='FAT.Companion']" />
+  <remove-node path="/api/package/class[@name='Fat32FileSystem.Companion']" />
+  <remove-node path="/api/package/class[@name='FatDirectory.Companion']" />
+  <remove-node path="/api/package/class[@name='UsbCommunication.Companion']" />
+  <remove-node path="/api/package/class[@name='ClusterChain.Companion']" />
+  <remove-node path="/api/package/class[@name='Fat32BootSector.Companion']" />
+  <remove-node path="/api/package/class[@name='FatDirectoryEntry.Companion']" />
+  <remove-node path="/api/package/class[@name='FatLfnDirectoryEntry.Companion']" />
+  <remove-node path="/api/package/class[@name='FsInfoStructure.Companion']" />
+  <remove-node path="/api/package/class[@name='ShortName.Companion']" />
+  <remove-node path="/api/package/class[@name='AndroidUsbCommunication.Companion']" />
+  <remove-node path="/api/package/class[@name='Partition.Companion']" />
+  <remove-node path="/api/package/class[@name='FileSystemPartitionTable.Companion']" />
+  <remove-node path="/api/package/class[@name='MasterBootRecord.Companion']" />
+
+</metadata>
