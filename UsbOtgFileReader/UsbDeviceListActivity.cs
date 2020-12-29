@@ -81,7 +81,7 @@ namespace UsbOtgFileReader
             Toolbar toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
             this.SetActionBar(toolbar);
             this.ActionBar.SetTitle(Resource.String.app_name);
-            this.ActionBar.SetIcon(Resource.Drawable.usb);
+            this.ActionBar.SetIcon(Resource.Drawable.usb_and_folder_outline);
             this.ActionBar.SetHomeButtonEnabled(true);
 
             Button startUsbScan = this.FindViewById<Button>(Resource.Id.startUsbScan);

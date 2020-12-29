@@ -2238,6 +2238,9 @@ namespace UsbOtgFileReader
 			// aapt resource value: 0x7F06006E
 			public const int usb = 2131099758;
 			
+			// aapt resource value: 0x7F06006F
+			public const int usb_and_folder_outline = 2131099759;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
