@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Reads files from USB mass storage devices using USB OTG cables")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UsbOtgFileReader")]
+[assembly: AssemblyProduct("USB OTG File Reader")]
 [assembly: AssemblyCopyright("Copyright © 2020 vividos")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

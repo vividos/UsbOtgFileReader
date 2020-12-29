@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AndroidUsbMassStorageLib")]
+[assembly: AssemblyTitle("Android USB Mass Storage Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AndroidUsbMassStorageLib")]
+[assembly: AssemblyProduct("USB OTG File Reader")]
 [assembly: AssemblyCopyright("Copyright © 2020 vividos")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
