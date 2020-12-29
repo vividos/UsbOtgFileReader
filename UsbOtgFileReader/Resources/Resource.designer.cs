@@ -3218,19 +3218,22 @@ namespace UsbOtgFileReader
 			public const int file_item_download_text = 2131558453;
 			
 			// aapt resource value: 0x7F0D0036
-			public const int search_menu_title = 2131558454;
+			public const int file_system_title = 2131558454;
 			
 			// aapt resource value: 0x7F0D0037
-			public const int start_usb_scan_text = 2131558455;
+			public const int search_menu_title = 2131558455;
 			
 			// aapt resource value: 0x7F0D0038
-			public const int status_bar_notification_info_overflow = 2131558456;
+			public const int start_usb_scan_text = 2131558456;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int usb_device_name_text = 2131558457;
+			public const int status_bar_notification_info_overflow = 2131558457;
 			
 			// aapt resource value: 0x7F0D003A
-			public const int usb_folder_or_file_name = 2131558458;
+			public const int usb_device_name_text = 2131558458;
+			
+			// aapt resource value: 0x7F0D003B
+			public const int usb_folder_or_file_name = 2131558459;
 			
 			static String()
 			{

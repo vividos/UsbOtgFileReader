@@ -17,7 +17,7 @@ namespace UsbOtgFileReader
     /// <summary>
     /// Activity that shows the file system of a connected USB device
     /// </summary>
-    [Activity(Label = "USB File System")]
+    [Activity(Label = "@string/file_system_title", Theme = "@style/AppTheme")]
     public class UsbFileSystemActivity : Activity
     {
         /// <summary>
