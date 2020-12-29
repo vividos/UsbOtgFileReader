@@ -51,6 +51,8 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+    <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -74,6 +76,7 @@
     <Compile Include="UsbFileSystemActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAotProfile Include="custom.aprof" />
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
