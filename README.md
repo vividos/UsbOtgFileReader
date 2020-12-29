@@ -5,6 +5,14 @@
 USB OTG File Reader is an app for Android to copy files from USB devices
 connected via an OTG cable.
 
+## Build
+
+Builds are created using AppCenter:
+[![Build status](https://build.appcenter.ms/v0.1/apps/8afa61f9-838c-45a3-9a18-12704f9a9368/branches/main/badge)](https://appcenter.ms)
+
+The latest build can be downloaded here:
+https://install.appcenter.ms/users/michael.fink/apps/usbotgfilereader/distribution_groups/beta
+
 ## The Story
 
 On modern Android versions, USB devices are automatically recognized and
