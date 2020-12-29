@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Day theme colors -->
+  <color name="launcher_background">#2c3e50</color>
+  <color name="colorPrimary">#2c3e50</color>
+  <color name="colorPrimaryDark">#1B3147</color>
+  <color name="colorAccent">#3498db</color>
+  <color name="colorListViewBackground">#eeeeee</color>
+  <color name="colorListItemBackground">#ffffff</color>
+  <color name="colorListItemText">#111111</color>
+  <color name="colorIconPathFill">#000000</color>
+</resources>

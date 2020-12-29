@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:clipToPadding="false">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:gravity="center"
+        android:elevation="2dp"
+        android:background="@color/colorListItemBackground">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/folder_outline"
+            android:id="@+id/folderOrFileImage"
+            android:minHeight="32dp"
+            android:minWidth="32dp"
+            android:fillColor="@color/colorIconPathFill" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/folderOrFileName"
+            android:textSize="20dp"
+            android:textColor="@color/colorListItemText"
+            android:text="@string/usb_folder_or_file_name" />
+    </LinearLayout>
+</LinearLayout>
