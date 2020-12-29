@@ -90,6 +90,9 @@ namespace UsbOtgFileReader
             this.usbDeviceList = this.FindViewById<ListView>(Resource.Id.usbDeviceList);
 
             this.usbDeviceList.ItemClick += this.OnItemClick_UsbDeviceList;
+
+            // start initial scan
+            startUsbScan.PerformClick();
         }
 
         /// <summary>
