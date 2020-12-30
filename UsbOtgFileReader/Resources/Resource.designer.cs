@@ -2194,52 +2194,55 @@ namespace UsbOtgFileReader
 			public const int folder_outline = 2131099743;
 			
 			// aapt resource value: 0x7F060060
-			public const int notification_action_background = 2131099744;
+			public const int information_outline = 2131099744;
 			
 			// aapt resource value: 0x7F060061
-			public const int notification_bg = 2131099745;
+			public const int notification_action_background = 2131099745;
 			
 			// aapt resource value: 0x7F060062
-			public const int notification_bg_low = 2131099746;
+			public const int notification_bg = 2131099746;
 			
 			// aapt resource value: 0x7F060063
-			public const int notification_bg_low_normal = 2131099747;
+			public const int notification_bg_low = 2131099747;
 			
 			// aapt resource value: 0x7F060064
-			public const int notification_bg_low_pressed = 2131099748;
+			public const int notification_bg_low_normal = 2131099748;
 			
 			// aapt resource value: 0x7F060065
-			public const int notification_bg_normal = 2131099749;
+			public const int notification_bg_low_pressed = 2131099749;
 			
 			// aapt resource value: 0x7F060066
-			public const int notification_bg_normal_pressed = 2131099750;
+			public const int notification_bg_normal = 2131099750;
 			
 			// aapt resource value: 0x7F060067
-			public const int notification_icon_background = 2131099751;
+			public const int notification_bg_normal_pressed = 2131099751;
 			
 			// aapt resource value: 0x7F060068
-			public const int notification_template_icon_bg = 2131099752;
+			public const int notification_icon_background = 2131099752;
 			
 			// aapt resource value: 0x7F060069
-			public const int notification_template_icon_low_bg = 2131099753;
+			public const int notification_template_icon_bg = 2131099753;
 			
 			// aapt resource value: 0x7F06006A
-			public const int notification_tile_bg = 2131099754;
+			public const int notification_template_icon_low_bg = 2131099754;
 			
 			// aapt resource value: 0x7F06006B
-			public const int notify_panel_notification_icon_bg = 2131099755;
+			public const int notification_tile_bg = 2131099755;
 			
 			// aapt resource value: 0x7F06006C
-			public const int tooltip_frame_dark = 2131099756;
+			public const int notify_panel_notification_icon_bg = 2131099756;
 			
 			// aapt resource value: 0x7F06006D
-			public const int tooltip_frame_light = 2131099757;
+			public const int tooltip_frame_dark = 2131099757;
 			
 			// aapt resource value: 0x7F06006E
-			public const int usb = 2131099758;
+			public const int tooltip_frame_light = 2131099758;
 			
 			// aapt resource value: 0x7F06006F
-			public const int usb_and_folder_outline = 2131099759;
+			public const int usb = 2131099759;
+			
+			// aapt resource value: 0x7F060070
+			public const int usb_and_folder_outline = 2131099760;
 			
 			static Drawable()
 			{
@@ -2675,127 +2678,130 @@ namespace UsbOtgFileReader
 			public const int showHome = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int showTitle = 2131165325;
+			public const int showInfo = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int spacer = 2131165326;
+			public const int showTitle = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int split_action_bar = 2131165327;
+			public const int spacer = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int src_atop = 2131165328;
+			public const int split_action_bar = 2131165328;
 			
 			// aapt resource value: 0x7F070091
-			public const int src_in = 2131165329;
+			public const int src_atop = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int src_over = 2131165330;
+			public const int src_in = 2131165330;
 			
 			// aapt resource value: 0x7F070093
-			public const int startUsbScan = 2131165331;
+			public const int src_over = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int submenuarrow = 2131165332;
+			public const int startUsbScan = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int submit_area = 2131165333;
+			public const int submenuarrow = 2131165333;
+			
+			// aapt resource value: 0x7F070096
+			public const int submit_area = 2131165334;
 			
 			// aapt resource value: 0x7F070005
 			public const int SYM = 2131165189;
 			
-			// aapt resource value: 0x7F070096
-			public const int tabMode = 2131165334;
-			
 			// aapt resource value: 0x7F070097
-			public const int tag_accessibility_actions = 2131165335;
+			public const int tabMode = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int tag_accessibility_clickable_spans = 2131165336;
+			public const int tag_accessibility_actions = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int tag_accessibility_heading = 2131165337;
+			public const int tag_accessibility_clickable_spans = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int tag_accessibility_pane_title = 2131165338;
+			public const int tag_accessibility_heading = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int tag_screen_reader_focusable = 2131165339;
+			public const int tag_accessibility_pane_title = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int tag_transition_group = 2131165340;
+			public const int tag_screen_reader_focusable = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int tag_unhandled_key_event_manager = 2131165341;
+			public const int tag_transition_group = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int tag_unhandled_key_listeners = 2131165342;
+			public const int tag_unhandled_key_event_manager = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int text = 2131165343;
+			public const int tag_unhandled_key_listeners = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int text2 = 2131165344;
+			public const int text = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int textSpacerNoButtons = 2131165345;
+			public const int text2 = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int textSpacerNoTitle = 2131165346;
+			public const int textSpacerNoButtons = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int time = 2131165347;
+			public const int textSpacerNoTitle = 2131165347;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int title = 2131165348;
+			public const int time = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int titleDividerNoCustom = 2131165349;
+			public const int title = 2131165349;
 			
 			// aapt resource value: 0x7F0700A6
-			public const int title_template = 2131165350;
+			public const int titleDividerNoCustom = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
-			public const int toolbar = 2131165351;
+			public const int title_template = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int top = 2131165352;
+			public const int toolbar = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int topPanel = 2131165353;
+			public const int top = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int @unchecked = 2131165354;
+			public const int topPanel = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int uniform = 2131165355;
+			public const int @unchecked = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
-			public const int up = 2131165356;
+			public const int uniform = 2131165356;
 			
 			// aapt resource value: 0x7F0700AD
-			public const int usbDeviceList = 2131165357;
+			public const int up = 2131165357;
 			
 			// aapt resource value: 0x7F0700AE
-			public const int usbDeviceName = 2131165358;
+			public const int usbDeviceList = 2131165358;
 			
 			// aapt resource value: 0x7F0700AF
-			public const int usbFolderAndFileList = 2131165359;
+			public const int usbDeviceName = 2131165359;
 			
 			// aapt resource value: 0x7F0700B0
-			public const int useLogo = 2131165360;
+			public const int usbFolderAndFileList = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int view_tree_saved_state_registry_owner = 2131165361;
+			public const int useLogo = 2131165361;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int visible_removing_fragment_view_tag = 2131165362;
+			public const int view_tree_saved_state_registry_owner = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int withText = 2131165363;
+			public const int visible_removing_fragment_view_tag = 2131165363;
 			
 			// aapt resource value: 0x7F0700B4
-			public const int wrap_content = 2131165364;
+			public const int withText = 2131165364;
+			
+			// aapt resource value: 0x7F0700B5
+			public const int wrap_content = 2131165365;
 			
 			static Id()
 			{
@@ -3025,6 +3031,9 @@ namespace UsbOtgFileReader
 			
 			// aapt resource value: 0x7F0B0000
 			public const int contextmenu = 2131427328;
+			
+			// aapt resource value: 0x7F0B0001
+			public const int optionsmenu = 2131427329;
 			
 			static Menu()
 			{

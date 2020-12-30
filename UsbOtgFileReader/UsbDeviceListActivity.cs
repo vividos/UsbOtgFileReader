@@ -3,6 +3,7 @@ using Android.Content;
 using Android.Hardware.Usb;
 using Android.OS;
 using Android.Runtime;
+using Android.Views;
 using Android.Widget;
 using Com.Github.Mjdev.Libaums;
 using Microsoft.AppCenter;
@@ -165,6 +166,40 @@ namespace UsbOtgFileReader
             {
                 this.receiver.RequestPermission(this, this.usbManager, device.UsbDevice);
             }
+        }
+
+        /// <summary>
+        /// Creates options menu for this activity
+        /// </summary>
+        /// <param name="menu">menu to add to</param>
+        /// <returns>true when successful</returns>
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            this.MenuInflater.Inflate(Resource.Menu.optionsmenu, menu);
+            return true;
+        }
+
+        /// <summary>
+        /// Called when a menu item entry is selected
+        /// </summary>
+        /// <param name="item">selected menu item</param>
+        /// <returns>true when menu item was handled</returns>
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Resource.Id.showInfo)
+            {
+                var builder = new AlertDialog.Builder(this);
+                builder
+                    .SetTitle(Resource.String.app_name)
+                    .SetIcon(Resource.Mipmap.icon)
+                    .SetMessage("Version: " + Xamarin.Essentials.VersionTracking.CurrentVersion)
+                    .SetPositiveButton("OK", listener: null);
+
+                builder.Create().Show();
+                return true;
+            }
+
+            return base.OnOptionsItemSelected(item);
         }
 
         /// <summary>
