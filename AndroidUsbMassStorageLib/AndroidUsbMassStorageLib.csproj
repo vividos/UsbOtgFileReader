@@ -53,9 +53,17 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning">
+      <Version>3.3.37</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Xamarin.Kotlin.StdLib">
       <Version>1.4.20</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="version.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
