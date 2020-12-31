@@ -67,21 +67,52 @@ namespace UsbOtgFileReader
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
-            this.SetupUsbDevice();
-            this.InitLayout();
+            if (this.SetupUsbDevice())
+            {
+                this.InitLayout();
+            }
         }
 
         /// <summary>
         /// Sets up USB mass storage device to display file system for
         /// </summary>
-        private void SetupUsbDevice()
+        /// <returns>true when setting up USB device was successful</returns>
+        private bool SetupUsbDevice()
         {
             var usbDevice = this.Intent.GetParcelableExtra(ExtraUsbDevice) as UsbDevice;
 
+            if (usbDevice == null)
+            {
+                Toast.MakeText(this, $"USB device was null", ToastLength.Long).Show();
+                this.Finish();
+                return false;
+            }
+
             this.storageDevice = UsbMassStorageDevice.GetMassStorageDevices(usbDevice, this).FirstOrDefault();
 
-            // before interacting with a device you need to call Init()!
-            this.storageDevice.Init();
+            if (this.storageDevice == null)
+            {
+                Toast.MakeText(this, $"USB mass storage device was null", ToastLength.Long).Show();
+                this.Finish();
+                return false;
+            }
+
+            try
+            {
+                // before interacting with a device you need to call Init()!
+                this.storageDevice.Init();
+            }
+            catch (Java.IO.IOException ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error while UsbMassStorageDevice.Init() call: " + ex.ToString());
+
+                Toast.MakeText(this, $"Error while opening USB device.", ToastLength.Long).Show();
+                this.Finish();
+
+                this.storageDevice = null;
+
+                return false;
+            }
 
             // Only uses the first partition on the device
             this.currentFileSystem = this.storageDevice.Partitions.First().FileSystem;
@@ -90,6 +121,8 @@ namespace UsbOtgFileReader
                 $"Capacity: {this.currentFileSystem.Capacity}, Occupied Space: {this.currentFileSystem.OccupiedSpace}, Free Space: {this.currentFileSystem.FreeSpace}, Chunk size: {this.currentFileSystem.ChunkSize}");
 
             this.currentDirectory = this.currentFileSystem.RootDirectory;
+
+            return true;
         }
 
         /// <summary>
@@ -259,7 +292,11 @@ namespace UsbOtgFileReader
 
             this.currentFileSystem = null;
             this.currentDirectory = null;
-            this.storageDevice.Close();
+            if (this.storageDevice != null)
+            {
+                this.storageDevice.Close();
+                this.storageDevice = null;
+            }
         }
     }
 }
