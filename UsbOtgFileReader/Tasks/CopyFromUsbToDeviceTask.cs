@@ -35,8 +35,8 @@ namespace UsbOtgFileReader
             Activity context = Xamarin.Essentials.Platform.CurrentActivity;
 
             this.dialog = new ProgressDialog(context);
-            this.dialog.SetTitle("Copying file...");
-            this.dialog.SetMessage("Copying file from USB device to internal storage; this can take a while...");
+            this.dialog.SetTitle(Resource.String.progress_copy_file_title);
+            this.dialog.SetMessage(Resource.String.progress_copy_file_message);
             this.dialog.Indeterminate = false;
             this.dialog.SetProgressStyle(ProgressDialogStyle.Horizontal);
             this.dialog.SetCancelable(false);
@@ -67,7 +67,8 @@ namespace UsbOtgFileReader
                 int count = 0;
                 long total = 0;
 
-                System.Diagnostics.Debug.WriteLine($"Copy file with length: {this.copyParams.From.Length}");
+                System.Diagnostics.Debug.WriteLine(
+                    $"Copy file with length: {this.copyParams.From.Length}");
 
                 while ((count = inputStream.Read(bytes)) != -1)
                 {
@@ -89,11 +90,15 @@ namespace UsbOtgFileReader
             catch (IOException ex)
             {
                 Activity context = Xamarin.Essentials.Platform.CurrentActivity;
-                Toast.MakeText(context, $"Error while transferring: {ex.Message}", ToastLength.Long).Show();
+                Toast.MakeText(
+                    context,
+                    $"Error while transferring: {ex.Message}",
+                    ToastLength.Short).Show();
             }
 
             stopwatch.Stop();
-            System.Diagnostics.Debug.WriteLine($"copying file took {(int)stopwatch.ElapsedMilliseconds} ms");
+            System.Diagnostics.Debug.WriteLine(
+                $"copying file took {(int)stopwatch.ElapsedMilliseconds} ms");
 
             return null;
         }
@@ -143,7 +148,7 @@ namespace UsbOtgFileReader
             var downloadManager = DownloadManager.FromContext(Application.Context);
             downloadManager.AddCompletedDownload(
                 file.Name,
-                "Downloaded file " + file.Name,
+                $"Downloaded file {file.Name}",
                 true,
                 mimeType,
                 file.AbsolutePath,

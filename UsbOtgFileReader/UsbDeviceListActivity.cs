@@ -140,7 +140,10 @@ namespace UsbOtgFileReader
             }
             catch (Exception ex)
             {
-                Toast.MakeText(this, "Error while scanning: " + ex.Message, ToastLength.Long).Show();
+                Toast.MakeText(
+                    this,
+                    Resource.String.usb_device_error_scanning,
+                    ToastLength.Short).Show();
                 return;
             }
 
@@ -155,7 +158,10 @@ namespace UsbOtgFileReader
                 this,
                 devicesList);
 
-            Toast.MakeText(this, $"Found {devicesList.Length} USB devices", ToastLength.Long).Show();
+            Toast.MakeText(
+                this,
+                $"Found {devicesList.Length} USB devices",
+                ToastLength.Short).Show();
         }
 
         /// <summary>

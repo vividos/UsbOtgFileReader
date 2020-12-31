@@ -83,7 +83,7 @@ namespace UsbOtgFileReader
 
             if (usbDevice == null)
             {
-                Toast.MakeText(this, $"USB device was null", ToastLength.Long).Show();
+                Toast.MakeText(this, "USB device was null", ToastLength.Short).Show();
                 this.Finish();
                 return false;
             }
@@ -92,7 +92,7 @@ namespace UsbOtgFileReader
 
             if (this.storageDevice == null)
             {
-                Toast.MakeText(this, $"USB mass storage device was null", ToastLength.Long).Show();
+                Toast.MakeText(this, "USB mass storage device was null", ToastLength.Short).Show();
                 this.Finish();
                 return false;
             }
@@ -104,9 +104,13 @@ namespace UsbOtgFileReader
             }
             catch (Java.IO.IOException ex)
             {
-                System.Diagnostics.Debug.WriteLine("Error while UsbMassStorageDevice.Init() call: " + ex.ToString());
+                System.Diagnostics.Debug.WriteLine(
+                    "Error while UsbMassStorageDevice.Init() call: " + ex.ToString());
 
-                Toast.MakeText(this, $"Error while opening USB device.", ToastLength.Long).Show();
+                Toast.MakeText(
+                    this,
+                    Resource.String.usb_device_error_opening,
+                    ToastLength.Short).Show();
                 this.Finish();
 
                 this.storageDevice = null;
@@ -164,7 +168,10 @@ namespace UsbOtgFileReader
                 {
                     System.Diagnostics.Debug.WriteLine("Error while changing to subfolder: " + ex.ToString());
 
-                    Toast.MakeText(this, "Error while changing to subfolder.", ToastLength.Long).Show();
+                    Toast.MakeText(
+                        this,
+                        Resource.String.usb_device_error_change_folder,
+                        ToastLength.Short).Show();
                     this.Finish();
                 }
             }
@@ -202,7 +209,10 @@ namespace UsbOtgFileReader
 
             if (status != Xamarin.Essentials.PermissionStatus.Granted)
             {
-                Toast.MakeText(this, "Missing permission to write to storage.", ToastLength.Long).Show();
+                Toast.MakeText(
+                    this,
+                    Resource.String.download_missing_permission_write_storage,
+                    ToastLength.Short).Show();
             }
 
 #pragma warning disable CS0618 // Type or member is obsolete

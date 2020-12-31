@@ -86,7 +86,10 @@ namespace UsbOtgFileReader
             }
             else
             {
-                Toast.MakeText(context, "USB device permission was not granted.", ToastLength.Long).Show();
+                Toast.MakeText(
+                    context,
+                    Resource.String.usb_permission_not_granted,
+                    ToastLength.Short).Show();
             }
         }
     }

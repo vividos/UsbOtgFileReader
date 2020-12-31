@@ -3218,34 +3218,55 @@ namespace UsbOtgFileReader
 			public const int copy_toast_msg = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int fallback_menu_item_copy_link = 2131558450;
+			public const int download_missing_permission_write_storage = 2131558450;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int fallback_menu_item_open_in_browser = 2131558451;
+			public const int fallback_menu_item_copy_link = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int fallback_menu_item_share_link = 2131558452;
+			public const int fallback_menu_item_open_in_browser = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int file_item_download_text = 2131558453;
+			public const int fallback_menu_item_share_link = 2131558453;
 			
 			// aapt resource value: 0x7F0D0036
-			public const int file_system_title = 2131558454;
+			public const int file_item_download_text = 2131558454;
 			
 			// aapt resource value: 0x7F0D0037
-			public const int search_menu_title = 2131558455;
+			public const int file_system_title = 2131558455;
 			
 			// aapt resource value: 0x7F0D0038
-			public const int start_usb_scan_text = 2131558456;
+			public const int progress_copy_file_message = 2131558456;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int status_bar_notification_info_overflow = 2131558457;
+			public const int progress_copy_file_title = 2131558457;
 			
 			// aapt resource value: 0x7F0D003A
-			public const int usb_device_name_text = 2131558458;
+			public const int search_menu_title = 2131558458;
 			
 			// aapt resource value: 0x7F0D003B
-			public const int usb_folder_or_file_name = 2131558459;
+			public const int start_usb_scan_text = 2131558459;
+			
+			// aapt resource value: 0x7F0D003C
+			public const int status_bar_notification_info_overflow = 2131558460;
+			
+			// aapt resource value: 0x7F0D003D
+			public const int usb_device_error_change_folder = 2131558461;
+			
+			// aapt resource value: 0x7F0D003E
+			public const int usb_device_error_opening = 2131558462;
+			
+			// aapt resource value: 0x7F0D003F
+			public const int usb_device_error_scanning = 2131558463;
+			
+			// aapt resource value: 0x7F0D0040
+			public const int usb_device_name_text = 2131558464;
+			
+			// aapt resource value: 0x7F0D0041
+			public const int usb_folder_or_file_name = 2131558465;
+			
+			// aapt resource value: 0x7F0D0042
+			public const int usb_permission_not_granted = 2131558466;
 			
 			static String()
 			{

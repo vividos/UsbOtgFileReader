@@ -5,4 +5,11 @@
   <string name="usb_device_name_text">USB device name</string>
   <string name="usb_folder_or_file_name">Folder or file name</string>
   <string name="file_item_download_text">Download file</string>
+  <string name="progress_copy_file_title">Copying file...</string>
+  <string name="progress_copy_file_message">Copying file from USB device to internal storage; this can take a while...</string>
+  <string name="usb_permission_not_granted">USB device permission was not granted.</string>
+  <string name="usb_device_error_scanning">Error while scanning for USB devices.</string>
+  <string name="usb_device_error_opening">Error while opening USB device.</string>
+  <string name="usb_device_error_change_folder">Error while changing to folder.</string>
+  <string name="download_missing_permission_write_storage">Missing permission to write to storage.</string>
 </resources>
