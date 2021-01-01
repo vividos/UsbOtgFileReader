@@ -146,6 +146,9 @@ namespace UsbOtgFileReader
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(
+                    "Error scanning for devices: " + ex.ToString());
+
                 Toast.MakeText(
                     this,
                     Resource.String.usb_device_error_scanning,
