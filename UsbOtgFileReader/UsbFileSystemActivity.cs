@@ -166,7 +166,8 @@ namespace UsbOtgFileReader
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine("Error while changing to subfolder: " + ex.ToString());
+                    System.Diagnostics.Debug.WriteLine(
+                        "Error while changing to subfolder: " + ex.ToString());
 
                     Toast.MakeText(
                         this,

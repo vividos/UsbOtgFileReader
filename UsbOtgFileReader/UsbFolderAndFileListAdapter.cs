@@ -51,7 +51,9 @@ namespace UsbOtgFileReader
         /// <param name="directory">directory to enumerate folders and files</param>
         public UsbFolderAndFileListAdapter(Context context, IUsbFile directory)
         {
-            System.Diagnostics.Debug.Assert(directory.IsDirectory, "must be a directory");
+            System.Diagnostics.Debug.Assert(
+                directory.IsDirectory,
+                "must be a directory");
 
             this.context = context;
             this.folderAndFileList = directory.ListFiles().ToList();

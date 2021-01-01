@@ -97,7 +97,10 @@ namespace UsbOtgFileReader
             if (holder == null)
             {
                 holder = new UsbDeviceItemViewHolder();
-                LayoutInflater inflater = this.context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
+
+                LayoutInflater inflater = this.context
+                    .GetSystemService(Context.LayoutInflaterService)
+                    .JavaCast<LayoutInflater>();
 
                 view = inflater.Inflate(Resource.Layout.UsbDeviceItem, parent, false);
                 holder.DeviceName = view.FindViewById<TextView>(Resource.Id.usbDeviceName);
