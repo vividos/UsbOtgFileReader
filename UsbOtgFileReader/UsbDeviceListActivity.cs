@@ -158,10 +158,11 @@ namespace UsbOtgFileReader
                 this,
                 devicesList);
 
-            Toast.MakeText(
-                this,
-                $"Found {devicesList.Length} USB devices",
-                ToastLength.Short).Show();
+            string message = this.Resources.GetString(
+                Resource.String.usb_devices_found_n,
+                devicesList.Length);
+
+            Toast.MakeText(this, message, ToastLength.Short).Show();
         }
 
         /// <summary>
@@ -202,12 +203,16 @@ namespace UsbOtgFileReader
         {
             if (item.ItemId == Resource.Id.showInfo)
             {
+                string message = this.Resources.GetString(
+                    Resource.String.info_version_s,
+                    Xamarin.Essentials.VersionTracking.CurrentVersion);
+
                 var builder = new AlertDialog.Builder(this);
                 builder
                     .SetTitle(Resource.String.app_name)
                     .SetIcon(Resource.Mipmap.icon)
-                    .SetMessage("Version: " + Xamarin.Essentials.VersionTracking.CurrentVersion)
-                    .SetPositiveButton("OK", listener: null);
+                    .SetMessage(message)
+                    .SetPositiveButton(Resource.String.action_close_dialog, listener: null);
 
                 builder.Create().Show();
                 return true;

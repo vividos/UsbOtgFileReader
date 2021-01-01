@@ -12,4 +12,10 @@
   <string name="usb_device_error_opening">Error while opening USB device.</string>
   <string name="usb_device_error_change_folder">Error while changing to folder.</string>
   <string name="download_missing_permission_write_storage">Missing permission to write to storage.</string>
+  <string name="usb_device_error_transferring_s">Error while transferring: %1$s</string>
+  <string name="transfer_download_file_s">Downloaded file %1$s</string>
+  <string name="usb_devices_found_n">Found %1$d USB devices</string>
+  <string name="info_version_s">Version: %1$s</string>
+  <string name="action_open_github_page">Open GitHub project</string>
+  <string name="action_close_dialog">OK</string>
 </resources>

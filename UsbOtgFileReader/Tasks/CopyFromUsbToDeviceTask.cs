@@ -34,9 +34,11 @@ namespace UsbOtgFileReader
         {
             Activity context = Xamarin.Essentials.Platform.CurrentActivity;
 
+            string message = context.Resources.GetString(Resource.String.progress_copy_file_message);
+
             this.dialog = new ProgressDialog(context);
             this.dialog.SetTitle(Resource.String.progress_copy_file_title);
-            this.dialog.SetMessage(Resource.String.progress_copy_file_message);
+            this.dialog.SetMessage(message);
             this.dialog.Indeterminate = false;
             this.dialog.SetProgressStyle(ProgressDialogStyle.Horizontal);
             this.dialog.SetCancelable(false);
@@ -90,10 +92,12 @@ namespace UsbOtgFileReader
             catch (IOException ex)
             {
                 Activity context = Xamarin.Essentials.Platform.CurrentActivity;
-                Toast.MakeText(
-                    context,
-                    $"Error while transferring: {ex.Message}",
-                    ToastLength.Short).Show();
+
+                string message = context.Resources.GetString(
+                    Resource.String.usb_device_error_transferring_s,
+                    ex.Message);
+
+                Toast.MakeText(context, message, ToastLength.Short).Show();
             }
 
             stopwatch.Stop();
@@ -145,10 +149,16 @@ namespace UsbOtgFileReader
 
             string mimeType = MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension) ?? "application/octet-stream";
 
-            var downloadManager = DownloadManager.FromContext(Application.Context);
+            var context = Application.Context;
+
+            string message = context.Resources.GetString(
+                Resource.String.transfer_download_file_s,
+                file.Name);
+
+            var downloadManager = DownloadManager.FromContext(context);
             downloadManager.AddCompletedDownload(
                 file.Name,
-                $"Downloaded file {file.Name}",
+                message,
                 true,
                 mimeType,
                 file.AbsolutePath,

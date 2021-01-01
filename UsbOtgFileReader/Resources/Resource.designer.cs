@@ -3148,125 +3148,143 @@ namespace UsbOtgFileReader
 			// aapt resource value: 0x7F0D001A
 			public const int abc_toolbar_collapse_description = 2131558426;
 			
+			// aapt resource value: 0x7F0D001B
+			public const int action_close_dialog = 2131558427;
+			
 			// aapt resource value: 0x7F0D001C
-			public const int appcenter_distribute_dialog_actioned_on_disabled_toast = 2131558428;
+			public const int action_open_github_page = 2131558428;
 			
 			// aapt resource value: 0x7F0D001E
-			public const int appcenter_distribute_downloading_error = 2131558430;
-			
-			// aapt resource value: 0x7F0D001F
-			public const int appcenter_distribute_downloading_mandatory_update = 2131558431;
+			public const int appcenter_distribute_dialog_actioned_on_disabled_toast = 2131558430;
 			
 			// aapt resource value: 0x7F0D0020
-			public const int appcenter_distribute_downloading_update = 2131558432;
-			
-			// aapt resource value: 0x7F0D001D
-			public const int appcenter_distribute_download_progress_number_format = 2131558429;
+			public const int appcenter_distribute_downloading_error = 2131558432;
 			
 			// aapt resource value: 0x7F0D0021
-			public const int appcenter_distribute_install = 2131558433;
+			public const int appcenter_distribute_downloading_mandatory_update = 2131558433;
 			
 			// aapt resource value: 0x7F0D0022
-			public const int appcenter_distribute_install_ready_message = 2131558434;
+			public const int appcenter_distribute_downloading_update = 2131558434;
+			
+			// aapt resource value: 0x7F0D001F
+			public const int appcenter_distribute_download_progress_number_format = 2131558431;
 			
 			// aapt resource value: 0x7F0D0023
-			public const int appcenter_distribute_install_ready_title = 2131558435;
+			public const int appcenter_distribute_install = 2131558435;
 			
 			// aapt resource value: 0x7F0D0024
-			public const int appcenter_distribute_notification_category = 2131558436;
+			public const int appcenter_distribute_install_ready_message = 2131558436;
 			
 			// aapt resource value: 0x7F0D0025
-			public const int appcenter_distribute_unknown_sources_dialog_message = 2131558437;
+			public const int appcenter_distribute_install_ready_title = 2131558437;
 			
 			// aapt resource value: 0x7F0D0026
-			public const int appcenter_distribute_unknown_sources_dialog_settings = 2131558438;
+			public const int appcenter_distribute_notification_category = 2131558438;
 			
 			// aapt resource value: 0x7F0D0027
-			public const int appcenter_distribute_update_dialog_download = 2131558439;
+			public const int appcenter_distribute_unknown_sources_dialog_message = 2131558439;
 			
 			// aapt resource value: 0x7F0D0028
-			public const int appcenter_distribute_update_dialog_message_mandatory = 2131558440;
+			public const int appcenter_distribute_unknown_sources_dialog_settings = 2131558440;
 			
 			// aapt resource value: 0x7F0D0029
-			public const int appcenter_distribute_update_dialog_message_optional = 2131558441;
+			public const int appcenter_distribute_update_dialog_download = 2131558441;
 			
 			// aapt resource value: 0x7F0D002A
-			public const int appcenter_distribute_update_dialog_postpone = 2131558442;
+			public const int appcenter_distribute_update_dialog_message_mandatory = 2131558442;
 			
 			// aapt resource value: 0x7F0D002B
-			public const int appcenter_distribute_update_dialog_title = 2131558443;
+			public const int appcenter_distribute_update_dialog_message_optional = 2131558443;
 			
 			// aapt resource value: 0x7F0D002C
-			public const int appcenter_distribute_update_dialog_view_release_notes = 2131558444;
+			public const int appcenter_distribute_update_dialog_postpone = 2131558444;
 			
 			// aapt resource value: 0x7F0D002D
-			public const int appcenter_distribute_update_failed_dialog_ignore = 2131558445;
+			public const int appcenter_distribute_update_dialog_title = 2131558445;
 			
 			// aapt resource value: 0x7F0D002E
-			public const int appcenter_distribute_update_failed_dialog_message = 2131558446;
+			public const int appcenter_distribute_update_dialog_view_release_notes = 2131558446;
 			
 			// aapt resource value: 0x7F0D002F
-			public const int appcenter_distribute_update_failed_dialog_reinstall = 2131558447;
+			public const int appcenter_distribute_update_failed_dialog_ignore = 2131558447;
 			
 			// aapt resource value: 0x7F0D0030
-			public const int appcenter_distribute_update_failed_dialog_title = 2131558448;
-			
-			// aapt resource value: 0x7F0D001B
-			public const int app_name = 2131558427;
+			public const int appcenter_distribute_update_failed_dialog_message = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int copy_toast_msg = 2131558449;
+			public const int appcenter_distribute_update_failed_dialog_reinstall = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int download_missing_permission_write_storage = 2131558450;
+			public const int appcenter_distribute_update_failed_dialog_title = 2131558450;
+			
+			// aapt resource value: 0x7F0D001D
+			public const int app_name = 2131558429;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int fallback_menu_item_copy_link = 2131558451;
+			public const int copy_toast_msg = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int fallback_menu_item_open_in_browser = 2131558452;
+			public const int download_missing_permission_write_storage = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int fallback_menu_item_share_link = 2131558453;
+			public const int fallback_menu_item_copy_link = 2131558453;
 			
 			// aapt resource value: 0x7F0D0036
-			public const int file_item_download_text = 2131558454;
+			public const int fallback_menu_item_open_in_browser = 2131558454;
 			
 			// aapt resource value: 0x7F0D0037
-			public const int file_system_title = 2131558455;
+			public const int fallback_menu_item_share_link = 2131558455;
 			
 			// aapt resource value: 0x7F0D0038
-			public const int progress_copy_file_message = 2131558456;
+			public const int file_item_download_text = 2131558456;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int progress_copy_file_title = 2131558457;
+			public const int file_system_title = 2131558457;
 			
 			// aapt resource value: 0x7F0D003A
-			public const int search_menu_title = 2131558458;
+			public const int info_version_s = 2131558458;
 			
 			// aapt resource value: 0x7F0D003B
-			public const int start_usb_scan_text = 2131558459;
+			public const int progress_copy_file_message = 2131558459;
 			
 			// aapt resource value: 0x7F0D003C
-			public const int status_bar_notification_info_overflow = 2131558460;
+			public const int progress_copy_file_title = 2131558460;
 			
 			// aapt resource value: 0x7F0D003D
-			public const int usb_device_error_change_folder = 2131558461;
+			public const int search_menu_title = 2131558461;
 			
 			// aapt resource value: 0x7F0D003E
-			public const int usb_device_error_opening = 2131558462;
+			public const int start_usb_scan_text = 2131558462;
 			
 			// aapt resource value: 0x7F0D003F
-			public const int usb_device_error_scanning = 2131558463;
+			public const int status_bar_notification_info_overflow = 2131558463;
 			
 			// aapt resource value: 0x7F0D0040
-			public const int usb_device_name_text = 2131558464;
+			public const int transfer_download_file_s = 2131558464;
+			
+			// aapt resource value: 0x7F0D0046
+			public const int usb_devices_found_n = 2131558470;
 			
 			// aapt resource value: 0x7F0D0041
-			public const int usb_folder_or_file_name = 2131558465;
+			public const int usb_device_error_change_folder = 2131558465;
 			
 			// aapt resource value: 0x7F0D0042
-			public const int usb_permission_not_granted = 2131558466;
+			public const int usb_device_error_opening = 2131558466;
+			
+			// aapt resource value: 0x7F0D0043
+			public const int usb_device_error_scanning = 2131558467;
+			
+			// aapt resource value: 0x7F0D0044
+			public const int usb_device_error_transferring_s = 2131558468;
+			
+			// aapt resource value: 0x7F0D0045
+			public const int usb_device_name_text = 2131558469;
+			
+			// aapt resource value: 0x7F0D0047
+			public const int usb_folder_or_file_name = 2131558471;
+			
+			// aapt resource value: 0x7F0D0048
+			public const int usb_permission_not_granted = 2131558472;
 			
 			static String()
 			{
