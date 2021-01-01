@@ -15,7 +15,7 @@ namespace UsbOtgFileReader
         /// <summary>
         /// USB permission action text
         /// </summary>
-        private const string ActionUsbPermission = "de.vividos.app.android.usbotgfilereader.USB_PERMISSION";
+        private static string ActionUsbPermission = Xamarin.Essentials.AppInfo.PackageName + ".USB_PERMISSION";
 
         /// <summary>
         /// Registers broadcast receiver
