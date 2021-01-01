@@ -10,6 +10,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using System;
+using System.Threading.Tasks;
 
 namespace UsbOtgFileReader
 {
@@ -26,6 +27,11 @@ namespace UsbOtgFileReader
         /// AppCenter key for the Android version
         /// </summary>
         private const string AppCenterAndroidKey = "8b3d8c7b-6168-4e26-b16c-e4e7eddfe6f2";
+
+        /// <summary>
+        /// GitHub project URL
+        /// </summary>
+        private const string GitHubProjectUrl = "https://github.com/vividos/UsbOtgFileReader/";
 
         /// <summary>
         /// USB manager instance
@@ -212,6 +218,9 @@ namespace UsbOtgFileReader
                     .SetTitle(Resource.String.app_name)
                     .SetIcon(Resource.Mipmap.icon)
                     .SetMessage(message)
+                    .SetNeutralButton(
+                        Resource.String.action_open_github_page,
+                        (sender, args) => this.OpenGitHubProject())
                     .SetPositiveButton(Resource.String.action_close_dialog, listener: null);
 
                 builder.Create().Show();
@@ -219,6 +228,18 @@ namespace UsbOtgFileReader
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        /// <summary>
+        /// Opens GitHub project page
+        /// </summary>
+        private void OpenGitHubProject()
+        {
+            Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
+                async () =>
+                {
+                    await Xamarin.Essentials.Launcher.OpenAsync(GitHubProjectUrl);
+                });
         }
 
         /// <summary>
