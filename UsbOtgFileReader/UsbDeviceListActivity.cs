@@ -10,7 +10,6 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using System;
-using System.Threading.Tasks;
 
 namespace UsbOtgFileReader
 {
@@ -127,8 +126,8 @@ namespace UsbOtgFileReader
         /// <param name="args">event args</param>
         private void OnItemClick_UsbDeviceList(object sender, AdapterView.ItemClickEventArgs args)
         {
-            var storageDevice = this.usbDeviceList.Adapter.GetItem(args.Position) as UsbMassStorageDevice;
-            if (storageDevice != null)
+            var item = this.usbDeviceList.Adapter.GetItem(args.Position);
+            if (item is UsbMassStorageDevice storageDevice)
             {
                 this.ConnectDevice(storageDevice);
             }

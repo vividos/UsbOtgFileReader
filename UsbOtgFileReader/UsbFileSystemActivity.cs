@@ -79,9 +79,9 @@ namespace UsbOtgFileReader
         /// <returns>true when setting up USB device was successful</returns>
         private bool SetupUsbDevice()
         {
-            var usbDevice = this.Intent.GetParcelableExtra(ExtraUsbDevice) as UsbDevice;
+            var item = this.Intent.GetParcelableExtra(ExtraUsbDevice);
 
-            if (usbDevice == null)
+            if (!(item is UsbDevice usbDevice))
             {
                 Toast.MakeText(this, "USB device was null", ToastLength.Short).Show();
                 this.Finish();
