@@ -119,7 +119,18 @@ namespace UsbOtgFileReader
             }
 
             // Only uses the first partition on the device
-            this.currentFileSystem = this.storageDevice.Partitions.First().FileSystem;
+            this.currentFileSystem = this.storageDevice.Partitions?.FirstOrDefault()?.FileSystem;
+
+            if (this.currentFileSystem == null)
+            {
+                Toast.MakeText(this, "No partitions or file systems found", ToastLength.Short).Show();
+
+                this.Finish();
+
+                this.storageDevice = null;
+
+                return false;
+            }
 
             System.Diagnostics.Debug.WriteLine(
                 $"Capacity: {this.currentFileSystem.Capacity}, Occupied Space: {this.currentFileSystem.OccupiedSpace}, Free Space: {this.currentFileSystem.FreeSpace}, Chunk size: {this.currentFileSystem.ChunkSize}");
