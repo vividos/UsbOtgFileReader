@@ -39,7 +39,12 @@ namespace UsbOtgFileReader
         /// <param name="usbDevice">USB device to request</param>
         internal void RequestPermission(Context context, UsbManager usbManager, UsbDevice usbDevice)
         {
-            var permissionIntent = PendingIntent.GetBroadcast(context, 0, new Intent(ActionUsbPermission), 0);
+            var permissionIntent = PendingIntent.GetBroadcast(
+                context,
+                0,
+                new Intent(ActionUsbPermission),
+                PendingIntentFlags.Immutable);
+
             usbManager.RequestPermission(usbDevice, permissionIntent);
         }
 
