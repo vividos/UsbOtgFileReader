@@ -83,7 +83,7 @@ namespace UsbOtgFileReader
 
             if (!(item is UsbDevice usbDevice))
             {
-                Toast.MakeText(this, "USB device was null", ToastLength.Short).Show();
+                Toast.MakeText(this, Resource.String.usb_device_null, ToastLength.Short).Show();
                 this.Finish();
                 return false;
             }
@@ -102,7 +102,11 @@ namespace UsbOtgFileReader
 
             if (this.storageDevice == null)
             {
-                Toast.MakeText(this, "USB mass storage device was null", ToastLength.Short).Show();
+                Toast.MakeText(
+                    this,
+                    Resource.String.usb_device_error_no_mass_storage,
+                    ToastLength.Short).Show();
+
                 this.Finish();
                 return false;
             }
@@ -133,7 +137,10 @@ namespace UsbOtgFileReader
 
             if (this.currentFileSystem == null)
             {
-                Toast.MakeText(this, "No partitions or file systems found", ToastLength.Short).Show();
+                Toast.MakeText(
+                    this,
+                    Resource.String.usb_device_error_no_partitions_or_filesystems,
+                    ToastLength.Short).Show();
 
                 this.Finish();
 
