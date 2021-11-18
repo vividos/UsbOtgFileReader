@@ -98,7 +98,8 @@ namespace UsbOtgFileReader
                 return false;
             }
 
-            this.storageDevice = UsbMassStorageDevice.GetMassStorageDevices(usbDevice, this).FirstOrDefault();
+            this.storageDevice =
+                UsbMassStorageDevice.GetMassStorageDevices(usbDevice, this).FirstOrDefault();
 
             if (this.storageDevice == null)
             {
@@ -234,7 +235,8 @@ namespace UsbOtgFileReader
         /// <returns>task to wait on</returns>
         private async Task StartFileDownload(IUsbFile usbFile)
         {
-            Xamarin.Essentials.PermissionStatus status = await Xamarin.Essentials.Permissions.RequestAsync<Xamarin.Essentials.Permissions.StorageWrite>();
+            Xamarin.Essentials.PermissionStatus status =
+                await Xamarin.Essentials.Permissions.RequestAsync<Xamarin.Essentials.Permissions.StorageWrite>();
 
             if (status != Xamarin.Essentials.PermissionStatus.Granted)
             {

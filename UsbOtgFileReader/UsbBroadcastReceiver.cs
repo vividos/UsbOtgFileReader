@@ -93,7 +93,9 @@ namespace UsbOtgFileReader
             {
                 if (usbDevice != null)
                 {
-                    UsbMassStorageDevice storageDevice = UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context).FirstOrDefault();
+                    UsbMassStorageDevice storageDevice =
+                        UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context).FirstOrDefault();
+
                     if (storageDevice != null)
                     {
                         UsbFileSystemActivity.Start(context, storageDevice);
