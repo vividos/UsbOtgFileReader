@@ -23,7 +23,11 @@ namespace UsbOtgFileReader
         /// <param name="context">context to use</param>
         public void Register(Context context)
         {
-            var filter = new IntentFilter(ActionUsbPermission);
+            var filter = new IntentFilter();
+
+            filter.AddAction(ActionUsbPermission);
+            filter.AddAction(UsbManager.ActionUsbDeviceAttached);
+
             context.RegisterReceiver(this, filter);
         }
 
@@ -62,6 +66,13 @@ namespace UsbOtgFileReader
                     HandleUsbPermissionAction(context, intent);
                 }
             }
+            else if (intent.Action == UsbManager.ActionUsbDeviceAttached)
+            {
+                lock (this)
+                {
+                    HandleUsbDeviceAttachedAction(context, intent);
+                }
+            }
         }
 
         /// <summary>
@@ -90,6 +101,27 @@ namespace UsbOtgFileReader
                     context,
                     Resource.String.usb_permission_not_granted,
                     ToastLength.Short).Show();
+            }
+        }
+
+        /// <summary>
+        /// Handles USB device attached action
+        /// </summary>
+        /// <param name="context">context object</param>
+        /// <param name="intent">intent object</param>
+        private static void HandleUsbDeviceAttachedAction(Context context, Intent intent)
+        {
+            var usbDevice = (UsbDevice)intent.GetParcelableExtra(UsbManager.ExtraDevice);
+
+            if (usbDevice != null)
+            {
+                UsbMassStorageDevice storageDevice =
+                    UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context).FirstOrDefault();
+
+                if (storageDevice != null)
+                {
+                    UsbFileSystemActivity.Start(context, storageDevice);
+                }
             }
         }
     }

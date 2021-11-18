@@ -18,8 +18,8 @@ namespace UsbOtgFileReader
     /// device.
     /// </summary>
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    ////[IntentFilter(new[] { UsbManager.ActionUsbDeviceAttached })]
-    ////[MetaData(UsbManager.ActionUsbDeviceAttached, Resource = "@xml/device_filter")]
+    [IntentFilter(new[] { UsbManager.ActionUsbDeviceAttached })]
+    [MetaData(UsbManager.ActionUsbDeviceAttached, Resource = "@xml/device_filter")]
     public partial class UsbDeviceListActivity : Activity
     {
         /// <summary>

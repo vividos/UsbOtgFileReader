@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <!--
+  class 8: mass storage
+  subclass 6: SCSI transparent command set
+  protocol 80: USB mass storage bulk-only (BBB) transport -->
+  <usb-device class="8" subclass="6" protocol="80" />
+
+</resources>
