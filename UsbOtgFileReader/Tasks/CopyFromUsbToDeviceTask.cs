@@ -97,7 +97,11 @@ namespace UsbOtgFileReader
                     Resource.String.usb_device_error_transferring_s,
                     ex.Message);
 
-                Toast.MakeText(context, message, ToastLength.Short).Show();
+                Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
+                    () =>
+                    {
+                        Toast.MakeText(context, message, ToastLength.Short).Show();
+                    });
             }
 
             stopwatch.Stop();
