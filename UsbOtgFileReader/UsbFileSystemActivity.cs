@@ -88,6 +88,16 @@ namespace UsbOtgFileReader
                 return false;
             }
 
+            var usbManager = this.GetSystemService(Context.UsbService) as UsbManager;
+            bool hasPermision = usbManager.HasPermission(usbDevice);
+
+            if (!hasPermision)
+            {
+                Toast.MakeText(this, Resource.String.usb_permission_not_granted, ToastLength.Short).Show();
+                this.Finish();
+                return false;
+            }
+
             this.storageDevice = UsbMassStorageDevice.GetMassStorageDevices(usbDevice, this).FirstOrDefault();
 
             if (this.storageDevice == null)
