@@ -17,10 +17,6 @@
   <!-- remove Close() method that is also present in ICloseable base class -->
   <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs']/interface[@name='UsbFile']/method[@name='close' and count(parameter)=0]" />
 
-  <!-- remove some classes not useful for C# -->
-  <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatFile.initChain.1']" />
-  <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatDirectory.init.1']" />
-
   <!-- remove Companion fields and classes -->
   <remove-node path="/api/package/class/field[@name='Companion']" />
   <remove-node path="/api/package/interface/field[@name='Companion']" />
