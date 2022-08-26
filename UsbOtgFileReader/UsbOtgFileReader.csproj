@@ -102,13 +102,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>4.4.0</Version>
+      <Version>4.5.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Distribute">
-      <Version>4.4.0</Version>
+      <Version>4.5.3</Version>
     </PackageReference>
     <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>3.4.244</Version>
+      <Version>3.5.109</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -118,14 +118,14 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat">
-      <Version>1.3.1.3</Version>
+      <Version>1.4.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-      <Version>2.3.1.3</Version>
+      <Version>2.5.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Kotlin.StdLib">
-      <Version>1.5.31.2</Version>
+      <Version>1.7.10</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
