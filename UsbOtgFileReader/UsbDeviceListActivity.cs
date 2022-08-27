@@ -38,23 +38,23 @@ namespace UsbOtgFileReader
         /// <summary>
         /// USB manager instance
         /// </summary>
-        private UsbManager usbManager;
+        private UsbManager? usbManager;
 
         /// <summary>
         /// Broadcast receiver used to
         /// </summary>
-        private UsbBroadcastReceiver receiver;
+        private UsbBroadcastReceiver? receiver;
 
         /// <summary>
         /// USB device list
         /// </summary>
-        private ListView usbDeviceList;
+        private ListView? usbDeviceList;
 
         /// <summary>
         /// Called when the activity is about to be created
         /// </summary>
         /// <param name="savedInstanceState">saved instance state; unused</param>
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -87,18 +87,28 @@ namespace UsbOtgFileReader
         {
             this.SetContentView(Resource.Layout.UsbDeviceListActivity);
 
-            Toolbar toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
+            Toolbar? toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
             this.SetActionBar(toolbar);
-            this.ActionBar.SetTitle(Resource.String.app_name);
-            this.ActionBar.SetIcon(Resource.Drawable.usb_and_folder_outline);
-            this.ActionBar.SetHomeButtonEnabled(true);
 
-            Button startUsbScan = this.FindViewById<Button>(Resource.Id.startUsbScan);
-            startUsbScan.Click += this.OnClick_ScanButton;
+            if (this.ActionBar != null)
+            {
+                this.ActionBar.SetTitle(Resource.String.app_name);
+                this.ActionBar.SetIcon(Resource.Drawable.usb_and_folder_outline);
+                this.ActionBar.SetHomeButtonEnabled(true);
+            }
+
+            Button? startUsbScan = this.FindViewById<Button>(Resource.Id.startUsbScan);
+            if (startUsbScan != null)
+            {
+                startUsbScan.Click += this.OnClick_ScanButton;
+            }
 
             this.usbDeviceList = this.FindViewById<ListView>(Resource.Id.usbDeviceList);
 
-            this.usbDeviceList.ItemClick += this.OnItemClick_UsbDeviceList;
+            if (this.usbDeviceList != null)
+            {
+                this.usbDeviceList.ItemClick += this.OnItemClick_UsbDeviceList;
+            }
         }
 
         /// <summary>
@@ -117,7 +127,7 @@ namespace UsbOtgFileReader
         /// </summary>
         /// <param name="sender">sender object</param>
         /// <param name="args">event args</param>
-        private void OnClick_ScanButton(object sender, EventArgs args)
+        private void OnClick_ScanButton(object? sender, EventArgs args)
         {
             this.StartScan();
         }
@@ -127,8 +137,13 @@ namespace UsbOtgFileReader
         /// </summary>
         /// <param name="sender">sender object</param>
         /// <param name="args">event args</param>
-        private void OnItemClick_UsbDeviceList(object sender, AdapterView.ItemClickEventArgs args)
+        private void OnItemClick_UsbDeviceList(object? sender, AdapterView.ItemClickEventArgs args)
         {
+            if (this.usbDeviceList?.Adapter == null)
+            {
+                return;
+            }
+
             var item = this.usbDeviceList.Adapter.GetItem(args.Position);
             if (item is UsbMassStorageDevice storageDevice)
             {
@@ -154,7 +169,7 @@ namespace UsbOtgFileReader
                 Toast.MakeText(
                     this,
                     Resource.String.usb_device_error_scanning,
-                    ToastLength.Short).Show();
+                    ToastLength.Short)?.Show();
                 return;
             }
 
@@ -165,15 +180,18 @@ namespace UsbOtgFileReader
 
             this.usbDeviceList = this.FindViewById<ListView>(Resource.Id.usbDeviceList);
 
-            this.usbDeviceList.Adapter = new UsbDeviceListAdapter(
-                this,
-                devicesList);
+            if (this.usbDeviceList != null)
+            {
+                this.usbDeviceList.Adapter = new UsbDeviceListAdapter(
+                   this,
+                   devicesList);
+            }
 
-            string message = this.Resources.GetString(
+            string? message = this.Resources?.GetString(
                 Resource.String.usb_devices_found_n,
                 devicesList.Length);
 
-            Toast.MakeText(this, message, ToastLength.Short).Show();
+            Toast.MakeText(this, message, ToastLength.Short)?.Show();
         }
 
         /// <summary>
@@ -182,6 +200,13 @@ namespace UsbOtgFileReader
         /// <param name="device">device to open</param>
         private void ConnectDevice(UsbMassStorageDevice device)
         {
+            if (this.usbManager == null ||
+                device == null ||
+                this.receiver == null)
+            {
+                return;
+            }
+
             bool hasPermision = this.usbManager.HasPermission(device.UsbDevice);
 
             if (hasPermision)
@@ -199,7 +224,7 @@ namespace UsbOtgFileReader
         /// </summary>
         /// <param name="menu">menu to add to</param>
         /// <returns>true when successful</returns>
-        public override bool OnCreateOptionsMenu(IMenu menu)
+        public override bool OnCreateOptionsMenu(IMenu? menu)
         {
             this.MenuInflater.Inflate(Resource.Menu.optionsmenu, menu);
             return true;
@@ -214,21 +239,21 @@ namespace UsbOtgFileReader
         {
             if (item.ItemId == Resource.Id.showInfo)
             {
-                string message = this.Resources.GetString(
+                string? message = this.Resources?.GetString(
                     Resource.String.info_version_s,
                     Xamarin.Essentials.VersionTracking.CurrentVersion);
 
                 var builder = new AlertDialog.Builder(this);
                 builder
-                    .SetTitle(Resource.String.app_name)
-                    .SetIcon(Resource.Mipmap.icon)
-                    .SetMessage(message)
-                    .SetNeutralButton(
+                    ?.SetTitle(Resource.String.app_name)
+                    ?.SetIcon(Resource.Mipmap.icon)
+                    ?.SetMessage(message)
+                    ?.SetNeutralButton(
                         Resource.String.action_open_github_page,
                         (sender, args) => this.OpenGitHubProject())
-                    .SetPositiveButton(Resource.String.action_close_dialog, listener: null);
+                    ?.SetPositiveButton(Resource.String.action_close_dialog, listener: null);
 
-                builder.Create().Show();
+                builder?.Create()?.Show();
                 return true;
             }
 

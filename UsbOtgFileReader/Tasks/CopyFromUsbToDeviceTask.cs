@@ -19,12 +19,12 @@ namespace UsbOtgFileReader.Tasks
         /// <summary>
         /// Parameters for copying file from USB device to the Android device
         /// </summary>
-        private CopyFromUsbToDeviceParams copyParams;
+        private CopyFromUsbToDeviceParams? copyParams;
 
         /// <summary>
         /// Progress dialog to show progress while downloading
         /// </summary>
-        private ProgressDialog dialog;
+        private ProgressDialog? dialog;
 
         /// <summary>
         /// Called before executing the task; shows a progress dialog
@@ -34,7 +34,7 @@ namespace UsbOtgFileReader.Tasks
         {
             Activity context = Xamarin.Essentials.Platform.CurrentActivity;
 
-            string message = context.Resources.GetString(Resource.String.progress_copy_file_message);
+            string? message = context.Resources?.GetString(Resource.String.progress_copy_file_message);
 
             this.dialog = new ProgressDialog(context);
             this.dialog.SetTitle(Resource.String.progress_copy_file_title);
@@ -62,6 +62,12 @@ namespace UsbOtgFileReader.Tasks
 
             try
             {
+                if (this.copyParams?.From == null ||
+                    this.copyParams?.To == null)
+                {
+                    throw new ArgumentNullException("From or To copyParams is null");
+                }
+
                 var inputStream = new UsbFileInputStream(this.copyParams.From);
                 var outputStream = new FileOutputStream(this.copyParams.To);
 
@@ -93,14 +99,14 @@ namespace UsbOtgFileReader.Tasks
             {
                 Activity context = Xamarin.Essentials.Platform.CurrentActivity;
 
-                string message = context.Resources.GetString(
+                string? message = context.Resources?.GetString(
                     Resource.String.usb_device_error_transferring_s,
                     ex.Message);
 
                 Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
                     () =>
                     {
-                        Toast.MakeText(context, message, ToastLength.Short).Show();
+                        Toast.MakeText(context, message, ToastLength.Short)?.Show();
                     });
             }
 
@@ -117,6 +123,12 @@ namespace UsbOtgFileReader.Tasks
         /// <param name="values">progress values</param>
         protected override void OnProgressUpdate(params int[] values)
         {
+            if (this.copyParams?.From == null ||
+                this.dialog == null)
+            {
+                return;
+            }
+
             long max = this.copyParams.From.Length;
             if (this.copyParams.From.Length > int.MaxValue)
             {
@@ -135,10 +147,13 @@ namespace UsbOtgFileReader.Tasks
         /// <param name="result">task result; unused</param>
         protected override void OnPostExecute([AllowNull] object result)
         {
-            this.dialog.Dismiss();
+            this.dialog?.Dismiss();
 
-            var file = new File(this.copyParams.To.AbsolutePath);
-            RegisterFileInDownloadManager(file);
+            if (this.copyParams?.To != null)
+            {
+                var file = new File(this.copyParams.To.AbsolutePath);
+                RegisterFileInDownloadManager(file);
+            }
 
             base.OnPostExecute(result);
         }
@@ -149,18 +164,18 @@ namespace UsbOtgFileReader.Tasks
         /// <param name="file">file to register</param>
         private static void RegisterFileInDownloadManager(File file)
         {
-            string extension = MimeTypeMap.GetFileExtensionFromUrl(file.AbsolutePath);
+            string? extension = MimeTypeMap.GetFileExtensionFromUrl(file.AbsolutePath);
 
-            string mimeType = MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension) ?? "application/octet-stream";
+            string mimeType = MimeTypeMap.Singleton?.GetMimeTypeFromExtension(extension) ?? "application/octet-stream";
 
             var context = Application.Context;
 
-            string message = context.Resources.GetString(
+            string? message = context.Resources?.GetString(
                 Resource.String.transfer_download_file_s,
                 file.Name);
 
             var downloadManager = DownloadManager.FromContext(context);
-            downloadManager.AddCompletedDownload(
+            downloadManager?.AddCompletedDownload(
                 file.Name,
                 message,
                 true,

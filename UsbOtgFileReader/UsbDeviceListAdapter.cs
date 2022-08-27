@@ -3,6 +3,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Github.Mjdev.Libaums;
+using System;
 
 namespace UsbOtgFileReader
 {
@@ -19,12 +20,12 @@ namespace UsbOtgFileReader
             /// <summary>
             /// USB device
             /// </summary>
-            public UsbMassStorageDevice Device { get; internal set; }
+            public UsbMassStorageDevice? Device { get; internal set; }
 
             /// <summary>
             /// Device name text view
             /// </summary>
-            public TextView DeviceName { get; set; }
+            public TextView? DeviceName { get; set; }
         }
 
         /// <summary>
@@ -82,10 +83,10 @@ namespace UsbOtgFileReader
         /// <param name="convertView">view to recycle, or null</param>
         /// <param name="parent">parent view group</param>
         /// <returns>view for list item</returns>
-        public override View GetView(int position, View convertView, ViewGroup parent)
+        public override View GetView(int position, View? convertView, ViewGroup? parent)
         {
-            View view = convertView;
-            UsbDeviceItemViewHolder holder = null;
+            View? view = convertView;
+            UsbDeviceItemViewHolder? holder = null;
 
             UsbMassStorageDevice device = this.devices[position];
 
@@ -93,21 +94,35 @@ namespace UsbOtgFileReader
             {
                 holder = view.Tag as UsbDeviceItemViewHolder;
             }
-
-            if (holder == null)
+            else
             {
-                holder = new UsbDeviceItemViewHolder();
-
-                LayoutInflater inflater = this.context
+                LayoutInflater? inflater = this.context
                     .GetSystemService(Context.LayoutInflaterService)
                     .JavaCast<LayoutInflater>();
 
-                view = inflater.Inflate(Resource.Layout.UsbDeviceItem, parent, false);
-                holder.DeviceName = view.FindViewById<TextView>(Resource.Id.usbDeviceName);
+                view = inflater?.Inflate(Resource.Layout.UsbDeviceItem, parent, false);
+
+                if (view == null)
+                {
+                    throw new InvalidOperationException("couldn't inflate view");
+                }
+            }
+
+            if (holder == null)
+            {
+                holder = new UsbDeviceItemViewHolder
+                {
+                    DeviceName = view.FindViewById<TextView>(Resource.Id.usbDeviceName)
+                };
+
                 view.Tag = holder;
             }
 
-            holder.DeviceName.Text = device.UsbDevice.ProductName;
+            if (holder.DeviceName != null)
+            {
+                holder.DeviceName.Text = device.UsbDevice.ProductName;
+            }
+
             holder.Device = device;
 
             return view;

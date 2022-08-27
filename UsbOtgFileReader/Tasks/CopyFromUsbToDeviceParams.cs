@@ -11,12 +11,12 @@ namespace UsbOtgFileReader.Tasks
         /// <summary>
         /// USB file to copy from
         /// </summary>
-        public IUsbFile From { get; set; }
+        public IUsbFile? From { get; set; }
 
         /// <summary>
         /// Storage file to copy to
         /// </summary>
-        public File To { get; set; }
+        public File? To { get; set; }
 
         /// <summary>
         /// Chunk size of current file system

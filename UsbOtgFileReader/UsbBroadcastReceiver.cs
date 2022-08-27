@@ -62,8 +62,13 @@ namespace UsbOtgFileReader
         /// </summary>
         /// <param name="context">content object</param>
         /// <param name="intent">intent object</param>
-        public override void OnReceive(Context context, Intent intent)
+        public override void OnReceive(Context? context, Intent? intent)
         {
+            if (context == null || intent == null)
+            {
+                return;
+            }
+
             if (intent.Action == ActionUsbPermission)
             {
                 lock (this)
@@ -87,14 +92,15 @@ namespace UsbOtgFileReader
         /// <param name="intent">intent object</param>
         private static void HandleUsbPermissionAction(Context context, Intent intent)
         {
-            var usbDevice = (UsbDevice)intent.GetParcelableExtra(UsbManager.ExtraDevice);
+            var usbDevice = (UsbDevice?)intent.GetParcelableExtra(UsbManager.ExtraDevice);
 
             if (intent.GetBooleanExtra(UsbManager.ExtraPermissionGranted, false))
             {
                 if (usbDevice != null)
                 {
-                    UsbMassStorageDevice storageDevice =
-                        UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context).FirstOrDefault();
+                    UsbMassStorageDevice? storageDevice =
+                        UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context)
+                        .FirstOrDefault();
 
                     if (storageDevice != null)
                     {
@@ -107,7 +113,7 @@ namespace UsbOtgFileReader
                 Toast.MakeText(
                     context,
                     Resource.String.usb_permission_not_granted,
-                    ToastLength.Short).Show();
+                    ToastLength.Short)?.Show();
             }
         }
 
@@ -118,12 +124,13 @@ namespace UsbOtgFileReader
         /// <param name="intent">intent object</param>
         private static void HandleUsbDeviceAttachedAction(Context context, Intent intent)
         {
-            var usbDevice = (UsbDevice)intent.GetParcelableExtra(UsbManager.ExtraDevice);
+            var usbDevice = (UsbDevice?)intent.GetParcelableExtra(UsbManager.ExtraDevice);
 
             if (usbDevice != null)
             {
-                UsbMassStorageDevice storageDevice =
-                    UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context).FirstOrDefault();
+                UsbMassStorageDevice? storageDevice =
+                    UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context)
+                    .FirstOrDefault();
 
                 if (storageDevice != null)
                 {

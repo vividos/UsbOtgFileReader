@@ -30,22 +30,22 @@ namespace UsbOtgFileReader
         /// <summary>
         /// Storage device to connect to
         /// </summary>
-        private UsbMassStorageDevice storageDevice;
+        private UsbMassStorageDevice? storageDevice;
 
         /// <summary>
         /// Current file system interface
         /// </summary>
-        private IFileSystem currentFileSystem;
+        private IFileSystem? currentFileSystem;
 
         /// <summary>
         /// List view with current list of folders and files
         /// </summary>
-        private ListView usbFolderAndFileList;
+        private ListView? usbFolderAndFileList;
 
         /// <summary>
         /// Current directory to show
         /// </summary>
-        private IUsbFile currentDirectory;
+        private IUsbFile? currentDirectory;
 
         /// <summary>
         /// Starts file system activity
@@ -63,7 +63,7 @@ namespace UsbOtgFileReader
         /// Called when the activity is about to be created
         /// </summary>
         /// <param name="savedInstanceState">saved instance state; unused</param>
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -81,21 +81,25 @@ namespace UsbOtgFileReader
         /// <returns>true when setting up USB device was successful</returns>
         private bool SetupUsbDevice()
         {
-            var item = this.Intent.GetParcelableExtra(ExtraUsbDevice);
+            var item = this.Intent?.GetParcelableExtra(ExtraUsbDevice);
 
             if (item is not UsbDevice usbDevice)
             {
-                Toast.MakeText(this, Resource.String.usb_device_null, ToastLength.Short).Show();
+                Toast.MakeText(this, Resource.String.usb_device_null, ToastLength.Short)?.Show();
                 this.Finish();
                 return false;
             }
 
             var usbManager = this.GetSystemService(Context.UsbService) as UsbManager;
-            bool hasPermision = usbManager.HasPermission(usbDevice);
+            bool hasPermision = usbManager?.HasPermission(usbDevice) ?? false;
 
             if (!hasPermision)
             {
-                Toast.MakeText(this, Resource.String.usb_permission_not_granted, ToastLength.Short).Show();
+                Toast.MakeText(
+                    this,
+                    Resource.String.usb_permission_not_granted,
+                    ToastLength.Short)?.Show();
+
                 this.Finish();
                 return false;
             }
@@ -108,7 +112,7 @@ namespace UsbOtgFileReader
                 Toast.MakeText(
                     this,
                     Resource.String.usb_device_error_no_mass_storage,
-                    ToastLength.Short).Show();
+                    ToastLength.Short)?.Show();
 
                 this.Finish();
                 return false;
@@ -127,7 +131,7 @@ namespace UsbOtgFileReader
                 Toast.MakeText(
                     this,
                     Resource.String.usb_device_error_opening,
-                    ToastLength.Short).Show();
+                    ToastLength.Short)?.Show();
                 this.Finish();
 
                 this.storageDevice = null;
@@ -143,7 +147,7 @@ namespace UsbOtgFileReader
                 Toast.MakeText(
                     this,
                     Resource.String.usb_device_error_no_partitions_or_filesystems,
-                    ToastLength.Short).Show();
+                    ToastLength.Short)?.Show();
 
                 this.Finish();
 
@@ -153,7 +157,10 @@ namespace UsbOtgFileReader
             }
 
             System.Diagnostics.Debug.WriteLine(
-                $"Capacity: {this.currentFileSystem.Capacity}, Occupied Space: {this.currentFileSystem.OccupiedSpace}, Free Space: {this.currentFileSystem.FreeSpace}, Chunk size: {this.currentFileSystem.ChunkSize}");
+                $"Capacity: {this.currentFileSystem.Capacity}, " +
+                $"Occupied Space: {this.currentFileSystem.OccupiedSpace}, " +
+                $"Free Space: {this.currentFileSystem.FreeSpace}, " +
+                $"Chunk size: {this.currentFileSystem.ChunkSize}");
 
             this.currentDirectory = this.currentFileSystem.RootDirectory;
 
@@ -167,16 +174,26 @@ namespace UsbOtgFileReader
         {
             this.SetContentView(Resource.Layout.UsbFileSystemActivity);
 
-            Toolbar toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
+            Toolbar? toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
             this.SetActionBar(toolbar);
-            this.ActionBar.SetTitle(Resource.String.app_name);
-            this.ActionBar.SetDisplayHomeAsUpEnabled(true);
-            this.ActionBar.SetHomeButtonEnabled(true);
+
+            if (this.ActionBar != null)
+            {
+                this.ActionBar.SetTitle(Resource.String.app_name);
+                this.ActionBar.SetDisplayHomeAsUpEnabled(true);
+                this.ActionBar.SetHomeButtonEnabled(true);
+            }
 
             this.usbFolderAndFileList = this.FindViewById<ListView>(Resource.Id.usbFolderAndFileList);
-            this.usbFolderAndFileList.ItemClick += this.OnItemClick_UsbFolderAndFileList;
 
-            this.usbFolderAndFileList.Adapter = new UsbFolderAndFileListAdapter(this, this.currentDirectory);
+            if (this.usbFolderAndFileList != null &&
+                this.currentDirectory != null)
+            {
+                this.usbFolderAndFileList.ItemClick += this.OnItemClick_UsbFolderAndFileList;
+
+                this.usbFolderAndFileList.Adapter =
+                    new UsbFolderAndFileListAdapter(this, this.currentDirectory);
+            }
         }
 
         /// <summary>
@@ -184,9 +201,20 @@ namespace UsbOtgFileReader
         /// </summary>
         /// <param name="sender">sender object</param>
         /// <param name="args">event args</param>
-        private void OnItemClick_UsbFolderAndFileList(object sender, AdapterView.ItemClickEventArgs args)
+        private void OnItemClick_UsbFolderAndFileList(object? sender, AdapterView.ItemClickEventArgs args)
         {
-            var folderOrFile = this.usbFolderAndFileList.Adapter.GetItem(args.Position) as IUsbFile;
+            if (this.usbFolderAndFileList == null ||
+                this.usbFolderAndFileList.Adapter == null)
+            {
+                return;
+            }
+
+            if (this.usbFolderAndFileList.Adapter.GetItem(args.Position)
+                is not IUsbFile folderOrFile)
+            {
+                return;
+            }
+
             if (folderOrFile.IsDirectory)
             {
                 // navigate to this folder
@@ -203,7 +231,7 @@ namespace UsbOtgFileReader
                     Toast.MakeText(
                         this,
                         Resource.String.usb_device_error_change_folder,
-                        ToastLength.Short).Show();
+                        ToastLength.Short)?.Show();
                     this.Finish();
                 }
             }
@@ -212,7 +240,7 @@ namespace UsbOtgFileReader
                 // show a context menu to download the file
                 var menu = new PopupMenu(this, args.View, GravityFlags.Center);
                 menu.Inflate(Resource.Menu.contextmenu);
-                menu.MenuItemClick += (s, a) => this.OnPopupMenuItemClick(a.Item, folderOrFile);
+                menu.MenuItemClick += (s, a) => this.OnPopupMenuItemClick(a?.Item, folderOrFile);
                 menu.Show();
             }
         }
@@ -222,9 +250,10 @@ namespace UsbOtgFileReader
         /// </summary>
         /// <param name="item">menu item</param>
         /// <param name="file">USB file</param>
-        private async void OnPopupMenuItemClick(IMenuItem item, IUsbFile file)
+        private async void OnPopupMenuItemClick(IMenuItem? item, IUsbFile file)
         {
-            if (item.ItemId == Resource.Id.fileItemDownload)
+            if (item != null &&
+                item.ItemId == Resource.Id.fileItemDownload)
             {
                 await this.StartFileDownload(file);
             }
@@ -245,13 +274,19 @@ namespace UsbOtgFileReader
                 Toast.MakeText(
                     this,
                     Resource.String.download_missing_permission_write_storage,
-                    ToastLength.Short).Show();
+                    ToastLength.Short)?.Show();
             }
 
 #pragma warning disable CS0618 // Type or member is obsolete
-            Java.IO.File downloadsFolder =
+            Java.IO.File? downloadsFolder =
                 Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
 #pragma warning restore CS0618 // Type or member is obsolete
+
+            if (downloadsFolder == null ||
+                this.currentFileSystem == null)
+            {
+                return;
+            }
 
             var copyParams = new CopyFromUsbToDeviceParams
             {
@@ -301,12 +336,16 @@ namespace UsbOtgFileReader
         /// <returns>true when navigated back to parent, or false when already at root</returns>
         private bool NavigateBack()
         {
-            if (this.currentDirectory.IsRoot)
+            if (this.currentDirectory == null ||
+                this.currentDirectory.IsRoot ||
+                this.currentDirectory.Parent == null ||
+                this.usbFolderAndFileList == null)
             {
                 return false;
             }
 
-            this.usbFolderAndFileList.Adapter = new UsbFolderAndFileListAdapter(this, this.currentDirectory.Parent);
+            this.usbFolderAndFileList.Adapter =
+                new UsbFolderAndFileListAdapter(this, this.currentDirectory.Parent);
 
             this.currentDirectory = this.currentDirectory.Parent;
 

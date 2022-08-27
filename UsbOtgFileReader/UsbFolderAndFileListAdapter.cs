@@ -3,6 +3,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Github.Mjdev.Libaums.FS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,12 +22,12 @@ namespace UsbOtgFileReader
             /// <summary>
             /// Folder or file image view
             /// </summary>
-            public ImageView Image { get; set; }
+            public ImageView? Image { get; set; }
 
             /// <summary>
             /// Folder or file name text view
             /// </summary>
-            public TextView Name { get; set; }
+            public TextView? Name { get; set; }
         }
 
         /// <summary>
@@ -59,7 +60,8 @@ namespace UsbOtgFileReader
             this.folderAndFileList = directory.ListFiles().ToList();
 
             // add parent for back navigation
-            if (!directory.IsRoot)
+            if (!directory.IsRoot &&
+                directory.Parent != null)
             {
                 this.folderAndFileList.Insert(0, directory.Parent);
                 this.firstItemIsParent = true;
@@ -98,27 +100,38 @@ namespace UsbOtgFileReader
         /// <param name="convertView">view to recycle, or null</param>
         /// <param name="parent">parent view group</param>
         /// <returns>view for list item</returns>
-        public override View GetView(int position, View convertView, ViewGroup parent)
+        public override View GetView(int position, View? convertView, ViewGroup? parent)
         {
-            View view = convertView;
-            UsbFileAndFolderListAdapterViewHolder holder = null;
+            View? view = convertView;
+            UsbFileAndFolderListAdapterViewHolder? holder = null;
 
             if (view != null)
             {
                 holder = view.Tag as UsbFileAndFolderListAdapterViewHolder;
             }
+            else
+            {
+                LayoutInflater? inflater =
+                    this.context.GetSystemService(Context.LayoutInflaterService)
+                    .JavaCast<LayoutInflater>();
+
+                view = inflater?.Inflate(Resource.Layout.UsbFolderOrFileItem, parent, false);
+
+                if (view == null)
+                {
+                    throw new InvalidOperationException("couldn't inflate view");
+                }
+            }
 
             if (holder == null)
             {
-                LayoutInflater inflater = this.context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
+                holder = new UsbFileAndFolderListAdapterViewHolder
+                {
+                    Name = view.FindViewById<TextView>(Resource.Id.folderOrFileName),
+                    Image = view.FindViewById<ImageView>(Resource.Id.folderOrFileImage)
+                };
 
-                view = inflater.Inflate(Resource.Layout.UsbFolderOrFileItem, parent, false);
-
-                holder = new UsbFileAndFolderListAdapterViewHolder();
                 view.Tag = holder;
-
-                holder.Name = view.FindViewById<TextView>(Resource.Id.folderOrFileName);
-                holder.Image = view.FindViewById<ImageView>(Resource.Id.folderOrFileImage);
             }
 
             // bind new variables
@@ -131,11 +144,17 @@ namespace UsbOtgFileReader
                 filename = "..";
             }
 
-            holder.Name.Text = filename;
+            if (holder.Name != null)
+            {
+                holder.Name.Text = filename;
+            }
 
-            holder.Image.SetImageResource(usbFile.IsDirectory
-                ? Resource.Drawable.folder_outline
-                : Resource.Drawable.file_outline);
+            if (holder.Image != null)
+            {
+                holder.Image.SetImageResource(usbFile.IsDirectory
+                    ? Resource.Drawable.folder_outline
+                    : Resource.Drawable.file_outline);
+            }
 
             return view;
         }
