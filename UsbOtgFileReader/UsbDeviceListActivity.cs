@@ -11,6 +11,8 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using System;
 
+[assembly: UsesFeature("android.hardware.usb.host", Required = true)]
+
 namespace UsbOtgFileReader
 {
     /// <summary>
