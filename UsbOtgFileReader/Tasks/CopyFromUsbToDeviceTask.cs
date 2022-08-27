@@ -9,7 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace UsbOtgFileReader
+namespace UsbOtgFileReader.Tasks
 {
     /// <summary>
     /// Asynchronous task to copy a file from USB to the Android device

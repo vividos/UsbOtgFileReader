@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using System.Runtime.Versioning;
 using System.Threading.Tasks;
+using UsbOtgFileReader.Tasks;
 
 namespace UsbOtgFileReader
 {
@@ -82,7 +83,7 @@ namespace UsbOtgFileReader
         {
             var item = this.Intent.GetParcelableExtra(ExtraUsbDevice);
 
-            if (!(item is UsbDevice usbDevice))
+            if (item is not UsbDevice usbDevice)
             {
                 Toast.MakeText(this, Resource.String.usb_device_null, ToastLength.Short).Show();
                 this.Finish();

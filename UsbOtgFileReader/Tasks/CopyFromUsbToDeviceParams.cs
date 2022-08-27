@@ -1,7 +1,7 @@
 ﻿using Com.Github.Mjdev.Libaums.FS;
 using Java.IO;
 
-namespace UsbOtgFileReader
+namespace UsbOtgFileReader.Tasks
 {
     /// <summary>
     /// Parameters to copy from USB device to this device
