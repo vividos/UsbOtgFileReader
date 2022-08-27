@@ -10,6 +10,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using System;
+using System.Runtime.Versioning;
 
 [assembly: UsesFeature("android.hardware.usb.host", Required = true)]
 
@@ -252,6 +253,7 @@ namespace UsbOtgFileReader
         /// <param name="requestCode">request code</param>
         /// <param name="permissions">list of requested permissions</param>
         /// <param name="grantResults">list of grant results</param>
+        [SupportedOSPlatform("android23.0")]
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

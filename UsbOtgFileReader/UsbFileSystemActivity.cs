@@ -10,6 +10,7 @@ using Com.Github.Mjdev.Libaums;
 using Com.Github.Mjdev.Libaums.FS;
 using System;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
 
 namespace UsbOtgFileReader
@@ -317,6 +318,7 @@ namespace UsbOtgFileReader
         /// <param name="requestCode">request code</param>
         /// <param name="permissions">list of requested permissions</param>
         /// <param name="grantResults">list of grant results</param>
+        [SupportedOSPlatform("android23.0")]
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
