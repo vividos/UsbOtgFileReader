@@ -1,6 +1,6 @@
 # BSD 3-Clause License
 
-Copyright (c) 2020-2022, vividos
+Copyright (c) 2020-2024, vividos
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
