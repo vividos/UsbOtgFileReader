@@ -7,11 +7,8 @@ connected via an OTG cable.
 
 ## Build
 
-Builds are created using AppCenter:
-[![Build status](https://build.appcenter.ms/v0.1/apps/8afa61f9-838c-45a3-9a18-12704f9a9368/branches/main/badge)](https://appcenter.ms)
-
-The latest build can be downloaded here:
-https://install.appcenter.ms/users/michael.fink/apps/usbotgfilereader/distribution_groups/beta
+Builds are done using GitHub actions:
+[![Build Android app](https://github.com/vividos/TaglierinaPanoramica/actions/workflows/build-app-android.yml/badge.svg)](https://github.com/vividos/UsbOtgFileReader/actions/workflows/build-app-android.yml)
 
 ## The Story
 
