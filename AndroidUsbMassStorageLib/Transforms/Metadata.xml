@@ -17,7 +17,15 @@
   <!-- remove Close() method that is also present in ICloseable base class -->
   <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs']/interface[@name='UsbFile']/method[@name='close' and count(parameter)=0]" />
 
-  <!-- remove Companion fields and classes -->
+  <!-- rename Partition class that has the same name as the containing namespace -->
+  <attr path="/api/package[@name='com.github.mjdev.libaums.partition']/class[@name='Partition']"
+        name="name">PartitionInfo</attr>
+  <attr path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/method[@name='getPartitions']"
+        name="return">java.util.List&lt;com.github.mjdev.libaums.partition.PartitionInfo&gt;</attr>
+  <attr path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/method[@name='setPartitions']/parameter[@name='value']"
+        name="type">java.util.List&lt;com.github.mjdev.libaums.partition.PartitionInfo&gt;</attr>
+
+	<!-- remove Companion fields and classes -->
   <remove-node path="/api/package/class/field[@name='Companion']" />
   <remove-node path="/api/package/interface/field[@name='Companion']" />
   <remove-node path="/api/package/class[@name='UsbMassStorageDevice.Companion']" />
