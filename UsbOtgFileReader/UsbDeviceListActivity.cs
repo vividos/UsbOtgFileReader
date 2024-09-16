@@ -239,9 +239,10 @@ namespace UsbOtgFileReader
         {
             if (item.ItemId == Resource.Id.showInfo)
             {
+                string versionNumber = VersionTracking.CurrentVersion ?? "???";
                 string? message = this.Resources?.GetString(
                     Resource.String.info_version_s,
-                    Xamarin.Essentials.VersionTracking.CurrentVersion);
+                    versionNumber!);
 
                 var builder = new AlertDialog.Builder(this);
                 builder
@@ -250,7 +251,7 @@ namespace UsbOtgFileReader
                     ?.SetMessage(message)
                     ?.SetNeutralButton(
                         Resource.String.action_open_github_page,
-                        (sender, args) => this.OpenGitHubProject())
+                        (sender, args) => OpenGitHubProject())
                     ?.SetPositiveButton(Resource.String.action_close_dialog, listener: null);
 
                 builder?.Create()?.Show();
@@ -263,7 +264,7 @@ namespace UsbOtgFileReader
         /// <summary>
         /// Opens GitHub project page
         /// </summary>
-        private void OpenGitHubProject()
+        private static void OpenGitHubProject()
         {
             Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
                 async () =>

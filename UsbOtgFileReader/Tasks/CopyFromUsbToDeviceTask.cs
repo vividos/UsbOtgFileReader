@@ -29,7 +29,6 @@ namespace UsbOtgFileReader.Tasks
         /// <summary>
         /// Called before executing the task; shows a progress dialog
         /// </summary>
-        [Obsolete]
         protected override void OnPreExecute()
         {
             Activity context = Xamarin.Essentials.Platform.CurrentActivity;
@@ -101,7 +100,7 @@ namespace UsbOtgFileReader.Tasks
 
                 string? message = context.Resources?.GetString(
                     Resource.String.usb_device_error_transferring_s,
-                    ex.Message);
+                    ex.Message ?? "???");
 
                 Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
                     () =>
