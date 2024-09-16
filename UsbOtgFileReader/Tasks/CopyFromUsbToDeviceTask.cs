@@ -6,6 +6,7 @@ using Com.Github.Mjdev.Libaums.FS;
 using Java.IO;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using Xamarin.Essentials;
 
 #pragma warning disable CS0618 // Type or member is obsolete
 
@@ -31,7 +32,7 @@ namespace UsbOtgFileReader.Tasks
         /// </summary>
         protected override void OnPreExecute()
         {
-            Activity context = Xamarin.Essentials.Platform.CurrentActivity;
+            Activity context = Platform.CurrentActivity;
 
             string? message = context.Resources?.GetString(Resource.String.progress_copy_file_message);
 
@@ -96,13 +97,13 @@ namespace UsbOtgFileReader.Tasks
             }
             catch (IOException ex)
             {
-                Activity context = Xamarin.Essentials.Platform.CurrentActivity;
+                Activity context = Platform.CurrentActivity;
 
                 string? message = context.Resources?.GetString(
                     Resource.String.usb_device_error_transferring_s,
                     ex.Message ?? "???");
 
-                Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
+                MainThread.BeginInvokeOnMainThread(
                     () =>
                     {
                         Toast.MakeText(context, message, ToastLength.Short)?.Show();

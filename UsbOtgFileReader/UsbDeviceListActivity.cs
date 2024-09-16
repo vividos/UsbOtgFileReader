@@ -11,6 +11,7 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using System;
 using System.Runtime.Versioning;
+using Xamarin.Essentials;
 
 [assembly: UsesFeature("android.hardware.usb.host", Required = true)]
 
@@ -63,7 +64,7 @@ namespace UsbOtgFileReader
                 typeof(Distribute),
                 typeof(Crashes));
 
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Platform.Init(this, savedInstanceState);
 
             this.InitUsbManager();
             this.InitLayout();
@@ -266,10 +267,10 @@ namespace UsbOtgFileReader
         /// </summary>
         private static void OpenGitHubProject()
         {
-            Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(
+            MainThread.BeginInvokeOnMainThread(
                 async () =>
                 {
-                    await Xamarin.Essentials.Launcher.OpenAsync(GitHubProjectUrl);
+                    await Launcher.OpenAsync(GitHubProjectUrl);
                 });
         }
 
@@ -282,7 +283,7 @@ namespace UsbOtgFileReader
         [SupportedOSPlatform("android23.0")]
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }

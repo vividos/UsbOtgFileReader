@@ -13,6 +13,7 @@ using System.Linq;
 using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using UsbOtgFileReader.Tasks;
+using Xamarin.Essentials;
 
 namespace UsbOtgFileReader
 {
@@ -67,7 +68,7 @@ namespace UsbOtgFileReader
         {
             base.OnCreate(savedInstanceState);
 
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Platform.Init(this, savedInstanceState);
 
             if (this.SetupUsbDevice())
             {
@@ -266,10 +267,10 @@ namespace UsbOtgFileReader
         /// <returns>task to wait on</returns>
         private async Task StartFileDownload(IUsbFile usbFile)
         {
-            Xamarin.Essentials.PermissionStatus status =
-                await Xamarin.Essentials.Permissions.RequestAsync<Xamarin.Essentials.Permissions.StorageWrite>();
+            PermissionStatus status =
+                await Permissions.RequestAsync<Permissions.StorageWrite>();
 
-            if (status != Xamarin.Essentials.PermissionStatus.Granted)
+            if (status != PermissionStatus.Granted)
             {
                 Toast.MakeText(
                     this,
@@ -361,7 +362,7 @@ namespace UsbOtgFileReader
         [SupportedOSPlatform("android23.0")]
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
