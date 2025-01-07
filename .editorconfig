@@ -1,4 +1,6 @@
-# Remove the line below if you want to inherit .editorconfig settings from higher directories
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
 root = true
 
 # C# files
@@ -10,10 +12,11 @@ root = true
 indent_size = 4
 indent_style = space
 tab_width = 4
+trim_trailing_whitespace = true
 
 # New line preferences
 end_of_line = crlf
-insert_final_newline = false
+insert_final_newline = true
 
 #### .NET Coding Conventions ####
 
