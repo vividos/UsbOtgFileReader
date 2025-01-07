@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 		LICENSE.md = LICENSE.md
 		README.md = README.md
-		Settings.StyleCop = Settings.StyleCop
+		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsbOtgFileReader", "UsbOtgFileReader\UsbOtgFileReader.csproj", "{2CDF590E-69D6-4587-B044-109FB5CCD315}"
