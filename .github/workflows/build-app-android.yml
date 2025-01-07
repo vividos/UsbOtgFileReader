@@ -20,7 +20,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 9.0.x
 
     - name: Prepare app signing
       uses: timheuer/base64-to-file@v1.2
@@ -33,7 +33,7 @@ jobs:
       run: >
         dotnet publish
         UsbOtgFileReader/UsbOtgFileReader.csproj
-        -f net8.0-android
+        -f net9.0-android
         -p:AndroidKeyStore=true
         -p:AndroidPackageFormats=apk
         -p:AndroidSigningKeyStore=keystore.jks
@@ -45,4 +45,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: APK file
-        path: UsbOtgFileReader/bin/Release/net8.0-android/publish/de.vividos.app.android.usbotgfilereader-Signed.apk
+        path: UsbOtgFileReader/bin/Release/net9.0-android/publish/de.vividos.app.android.usbotgfilereader-Signed.apk
