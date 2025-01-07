@@ -15,7 +15,7 @@ namespace UsbOtgFileReader.Tasks
     /// <summary>
     /// Asynchronous task to copy a file from USB to the Android device
     /// </summary>
-    internal class CopyFromUsbToDeviceTask : AsyncTask<CopyFromUsbToDeviceParams, int, object>
+    internal class CopyFromUsbToDeviceTask : AsyncTask<CopyFromUsbToDeviceParams, int, object?>
     {
         /// <summary>
         /// Parameters for copying file from USB device to the Android device
@@ -53,7 +53,7 @@ namespace UsbOtgFileReader.Tasks
         /// </summary>
         /// <param name="values">params values</param>
         /// <returns>result object</returns>
-        protected override object RunInBackground(params CopyFromUsbToDeviceParams[] values)
+        protected override object? RunInBackground(params CopyFromUsbToDeviceParams[] values)
         {
             var stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
@@ -101,7 +101,7 @@ namespace UsbOtgFileReader.Tasks
 
                 string? message = context.Resources?.GetString(
                     Resource.String.usb_device_error_transferring_s,
-                    ex.Message ?? "???");
+                    new Java.Lang.String(ex.Message ?? "???"));
 
                 MainThread.BeginInvokeOnMainThread(
                     () =>
@@ -172,7 +172,7 @@ namespace UsbOtgFileReader.Tasks
 
             string? message = context.Resources?.GetString(
                 Resource.String.transfer_download_file_s,
-                file.Name);
+                new Java.Lang.String(file.Name));
 
             var downloadManager = DownloadManager.FromContext(context);
             downloadManager?.AddCompletedDownload(
