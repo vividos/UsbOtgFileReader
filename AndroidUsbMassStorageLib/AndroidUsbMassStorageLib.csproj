@@ -11,7 +11,7 @@
     <Title>Android USB Mass Storage Library</Title>
     <Description>Xamarin.Android binding library for libaums</Description>
     <Product>USB OTG File Reader</Product>
-    <Copyright>Copyright © 2020-2024 vividos</Copyright>
+    <Copyright>Copyright © 2020-2025 vividos</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

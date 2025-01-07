@@ -13,7 +13,7 @@
     <Title>USB OTG File Reader</Title>
     <Description>Reads files from USB mass storage devices using USB OTG cables</Description>
     <Product>USB OTG File Reader</Product>
-    <Copyright>Copyright © 2020-2024 vividos</Copyright>
+    <Copyright>Copyright © 2020-2025 vividos</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

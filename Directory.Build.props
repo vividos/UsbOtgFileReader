@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Product>USB OTG File Reader</Product>
     <VersionPrefix>1.0.3</VersionPrefix>
-    <Copyright>Copyright © 2020-2024 Michael Fink</Copyright>
+    <Copyright>Copyright © 2020-2025 Michael Fink</Copyright>
     <Company></Company>
   </PropertyGroup>
 </Project>
