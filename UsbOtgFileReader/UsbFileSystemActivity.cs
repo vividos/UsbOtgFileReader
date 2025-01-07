@@ -124,7 +124,7 @@ namespace UsbOtgFileReader
                 // before interacting with a device you need to call Init()!
                 this.storageDevice.Init();
             }
-            catch (Java.IO.IOException ex)
+            catch (Java.Lang.Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(
                     "Error while UsbMassStorageDevice.Init() call: " + ex.ToString());
