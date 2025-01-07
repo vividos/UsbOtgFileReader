@@ -95,7 +95,7 @@ namespace UsbOtgFileReader.Tasks
                 outputStream.Close();
                 inputStream.Close();
             }
-            catch (IOException ex)
+            catch (Java.Lang.Exception ex)
             {
                 Activity context = Platform.CurrentActivity;
 
