@@ -8,6 +8,8 @@
     <item name="colorAccent">@color/colorAccent</item>
     <item name="windowNoTitle">true</item>
     <item name="windowActionBar">false</item>
+    <!-- https://www.mobiledev.blog/2024/10/google-silently-introduces-opt-out-api.html -->
+    <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
   </style>
 
 </resources>
