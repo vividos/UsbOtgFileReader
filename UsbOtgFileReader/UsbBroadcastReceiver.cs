@@ -3,6 +3,7 @@ using Android.Content;
 using Android.Hardware.Usb;
 using Android.Widget;
 using Com.Github.Mjdev.Libaums;
+using System;
 using System.Linq;
 
 namespace UsbOtgFileReader
@@ -28,7 +29,14 @@ namespace UsbOtgFileReader
             filter.AddAction(ActionUsbPermission);
             filter.AddAction(UsbManager.ActionUsbDeviceAttached);
 
-            context.RegisterReceiver(this, filter);
+            if (OperatingSystem.IsAndroidVersionAtLeast(33))
+            {
+                context.RegisterReceiver(this, filter, ReceiverFlags.Exported);
+            }
+            else
+            {
+                context.RegisterReceiver(this, filter);
+            }
         }
 
         /// <summary>
@@ -39,11 +47,16 @@ namespace UsbOtgFileReader
         /// <param name="usbDevice">USB device to request</param>
         internal static void RequestPermission(Context context, UsbManager usbManager, UsbDevice usbDevice)
         {
+            PendingIntentFlags flags =
+                OperatingSystem.IsAndroidVersionAtLeast(23)
+                ? PendingIntentFlags.Immutable
+                : 0;
+
             var permissionIntent = PendingIntent.GetBroadcast(
                 context,
                 0,
                 new Intent(ActionUsbPermission),
-                PendingIntentFlags.Immutable);
+                flags);
 
             usbManager.RequestPermission(usbDevice, permissionIntent);
         }
