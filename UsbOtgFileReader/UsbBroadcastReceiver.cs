@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.Content;
 using Android.Hardware.Usb;
 using Android.Widget;
@@ -37,7 +37,7 @@ namespace UsbOtgFileReader
         /// <param name="context">context to use</param>
         /// <param name="usbManager">USB manager to use</param>
         /// <param name="usbDevice">USB device to request</param>
-        internal void RequestPermission(Context context, UsbManager usbManager, UsbDevice usbDevice)
+        internal static void RequestPermission(Context context, UsbManager usbManager, UsbDevice usbDevice)
         {
             var permissionIntent = PendingIntent.GetBroadcast(
                 context,

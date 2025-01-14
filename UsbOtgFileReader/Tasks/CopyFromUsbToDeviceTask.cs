@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.OS;
 using Android.Webkit;
 using Android.Widget;
@@ -7,8 +7,6 @@ using Java.IO;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Xamarin.Essentials;
-
-#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace UsbOtgFileReader.Tasks
 {
@@ -65,7 +63,9 @@ namespace UsbOtgFileReader.Tasks
                 if (this.copyParams?.From == null ||
                     this.copyParams?.To == null)
                 {
-                    throw new ArgumentNullException("From or To copyParams is null");
+                    throw new ArgumentNullException(
+                        "copyParams.From/To",
+                        "From or To copyParams is null");
                 }
 
                 var inputStream = new UsbFileInputStream(this.copyParams.From);

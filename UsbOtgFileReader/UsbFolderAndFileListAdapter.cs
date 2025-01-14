@@ -1,4 +1,4 @@
-﻿using Android.Content;
+using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -149,12 +149,10 @@ namespace UsbOtgFileReader
                 holder.Name.Text = filename;
             }
 
-            if (holder.Image != null)
-            {
-                holder.Image.SetImageResource(usbFile.IsDirectory
-                    ? Resource.Drawable.folder_outline
-                    : Resource.Drawable.file_outline);
-            }
+            holder.Image?.SetImageResource(
+                usbFile.IsDirectory
+                ? Resource.Drawable.folder_outline
+                : Resource.Drawable.file_outline);
 
             return view;
         }

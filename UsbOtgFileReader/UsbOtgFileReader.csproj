@@ -8,6 +8,8 @@
     <ApplicationId>de.vividos.app.android.usbotgfilereader</ApplicationId>
     <Deterministic>True</Deterministic>
     <RuntimeIdentifiers>android-arm64</RuntimeIdentifiers>
+    <!-- disable warning CA1422: This call site is reachable on: 'Android' 21.0 and later. 'T' is obsoleted on: 'Android' xy.0 and later -->
+    <NoWarn>$(NoWarn);CA1422</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup>

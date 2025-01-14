@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Hardware.Usb;
@@ -278,10 +278,8 @@ namespace UsbOtgFileReader
                     ToastLength.Short)?.Show();
             }
 
-#pragma warning disable CS0618 // Type or member is obsolete
             Java.IO.File? downloadsFolder =
                 Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
-#pragma warning restore CS0618 // Type or member is obsolete
 
             if (downloadsFolder == null ||
                 this.currentFileSystem == null)

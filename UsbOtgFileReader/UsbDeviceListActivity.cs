@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.Content;
 using Android.Hardware.Usb;
 using Android.OS;
@@ -22,7 +22,7 @@ namespace UsbOtgFileReader
     /// device.
     /// </summary>
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    [IntentFilter(new[] { UsbManager.ActionUsbDeviceAttached })]
+    [IntentFilter([UsbManager.ActionUsbDeviceAttached])]
     [MetaData(UsbManager.ActionUsbDeviceAttached, Resource = "@xml/device_filter")]
     public partial class UsbDeviceListActivity : Activity
     {
@@ -216,7 +216,7 @@ namespace UsbOtgFileReader
             }
             else
             {
-                this.receiver.RequestPermission(this, this.usbManager, device.UsbDevice);
+                UsbBroadcastReceiver.RequestPermission(this, this.usbManager, device.UsbDevice);
             }
         }
 
