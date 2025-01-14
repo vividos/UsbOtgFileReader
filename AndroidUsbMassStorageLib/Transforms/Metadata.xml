@@ -1,4 +1,4 @@
-﻿<metadata>
+<metadata>
   <!-- rename some return types -->
   <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='Fat32FileSystem']/method[@name='getRootDirectory']"
         name="return">com.github.mjdev.libaums.fs.UsbFile</attr>
@@ -14,6 +14,10 @@
   <!-- remove field that also has setter and getter methods -->
   <remove-node path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/field[@name='partitions']" />
 
+  <!-- fix parameter name of setLength method -->
+  <attr path="/api/package[@name='com.github.mjdev.libaums.fs.fat32']/class[@name='FatDirectory']/method[@name='setLength']/parameter"
+        name="name">length</attr>
+
   <!-- remove Close() method that is also present in ICloseable base class -->
   <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs']/interface[@name='UsbFile']/method[@name='close' and count(parameter)=0]" />
 
@@ -25,7 +29,7 @@
   <attr path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/method[@name='setPartitions']/parameter[@name='value']"
         name="type">java.util.List&lt;com.github.mjdev.libaums.partition.PartitionInfo&gt;</attr>
 
-	<!-- remove Companion fields and classes -->
+  <!-- remove Companion fields and classes -->
   <remove-node path="/api/package/class/field[@name='Companion']" />
   <remove-node path="/api/package/interface/field[@name='Companion']" />
   <remove-node path="/api/package/class[@name='UsbMassStorageDevice.Companion']" />
