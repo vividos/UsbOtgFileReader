@@ -3,10 +3,10 @@
 # top-most EditorConfig file
 root = true
 
-# C# files
-[*.cs]
-
 #### Core EditorConfig Options ####
+[*.*]
+
+charset = utf-8
 
 # Indentation and spacing
 indent_size = 4
@@ -17,6 +17,13 @@ trim_trailing_whitespace = true
 # New line preferences
 end_of_line = crlf
 insert_final_newline = true
+
+# XML files
+[*.xml]
+indent_size = 2
+
+# C# files
+[*.cs]
 
 #### .NET Coding Conventions ####
 
