@@ -10,6 +10,7 @@
   <string name="usb_permission_not_granted">USB device permission was not granted.</string>
   <string name="usb_device_error_scanning">Error while scanning for USB devices.</string>
   <string name="usb_device_null">USB device was null.</string>
+  <string name="usb_manager_null">USB manager was null.</string>
   <string name="usb_device_error_opening">Error while opening USB device.</string>
   <string name="usb_device_error_no_mass_storage">Couldn\'t access USB mass storage device.</string>
   <string name="usb_device_error_no_partitions_or_filesystems">No partitions or file systems found.</string>

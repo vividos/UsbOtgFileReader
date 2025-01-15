@@ -92,8 +92,14 @@ namespace UsbOtgFileReader
             }
 
             var usbManager = this.GetSystemService(Context.UsbService) as UsbManager;
-            bool hasPermision = usbManager?.HasPermission(usbDevice) ?? false;
+            if (usbManager == null)
+            {
+                Toast.MakeText(this, Resource.String.usb_manager_null, ToastLength.Short)?.Show();
+                this.Finish();
+                return false;
+            }
 
+            bool hasPermision = usbManager.HasPermission(usbDevice);
             if (!hasPermision)
             {
                 Toast.MakeText(
