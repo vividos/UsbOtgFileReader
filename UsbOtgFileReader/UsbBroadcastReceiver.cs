@@ -5,6 +5,7 @@ using Android.Widget;
 using Com.Github.Mjdev.Libaums;
 using System;
 using System.Linq;
+using Xamarin.Essentials;
 
 namespace UsbOtgFileReader
 {
@@ -16,7 +17,7 @@ namespace UsbOtgFileReader
         /// <summary>
         /// USB permission action text
         /// </summary>
-        private static readonly string ActionUsbPermission = Xamarin.Essentials.AppInfo.PackageName + ".USB_PERMISSION";
+        private static readonly string ActionUsbPermission = AppInfo.PackageName + ".USB_PERMISSION";
 
         /// <summary>
         /// Registers broadcast receiver
@@ -27,7 +28,6 @@ namespace UsbOtgFileReader
             var filter = new IntentFilter();
 
             filter.AddAction(ActionUsbPermission);
-            filter.AddAction(UsbManager.ActionUsbDeviceAttached);
 
             if (OperatingSystem.IsAndroidVersionAtLeast(33))
             {
@@ -89,13 +89,6 @@ namespace UsbOtgFileReader
                     HandleUsbPermissionAction(context, intent);
                 }
             }
-            else if (intent.Action == UsbManager.ActionUsbDeviceAttached)
-            {
-                lock (this)
-                {
-                    HandleUsbDeviceAttachedAction(context, intent);
-                }
-            }
         }
 
         /// <summary>
@@ -120,28 +113,6 @@ namespace UsbOtgFileReader
                     context,
                     Resource.String.usb_permission_not_granted,
                     ToastLength.Short)?.Show();
-            }
-        }
-
-        /// <summary>
-        /// Handles USB device attached action
-        /// </summary>
-        /// <param name="context">context object</param>
-        /// <param name="intent">intent object</param>
-        private static void HandleUsbDeviceAttachedAction(Context context, Intent intent)
-        {
-            var usbDevice = (UsbDevice?)intent.GetParcelableExtra(UsbManager.ExtraDevice);
-
-            if (usbDevice != null)
-            {
-                UsbMassStorageDevice? storageDevice =
-                    UsbMassStorageDevice.GetMassStorageDevices(usbDevice, context)
-                    .FirstOrDefault();
-
-                if (storageDevice != null)
-                {
-                    UsbFileSystemActivity.Start(context, storageDevice);
-                }
             }
         }
     }
