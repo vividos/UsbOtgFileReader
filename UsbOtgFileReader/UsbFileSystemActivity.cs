@@ -52,11 +52,11 @@ namespace UsbOtgFileReader
         /// Starts file system activity
         /// </summary>
         /// <param name="context">context to use for start</param>
-        /// <param name="device">USB mass storage device to open</param>
-        public static void Start(Context context, UsbMassStorageDevice device)
+        /// <param name="device">USB device to open</param>
+        public static void Start(Context context, UsbDevice device)
         {
             var intent = new Intent(context, typeof(UsbFileSystemActivity));
-            intent.PutExtra(ExtraUsbDevice, device.UsbDevice);
+            intent.PutExtra(ExtraUsbDevice, device);
             context.StartActivity(intent);
         }
 

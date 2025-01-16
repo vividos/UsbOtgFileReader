@@ -212,7 +212,7 @@ namespace UsbOtgFileReader
 
             if (hasPermision)
             {
-                UsbFileSystemActivity.Start(this, device);
+                UsbFileSystemActivity.Start(this, device.UsbDevice);
             }
             else
             {
