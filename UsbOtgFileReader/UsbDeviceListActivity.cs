@@ -8,7 +8,6 @@ using Android.Widget;
 using Com.Github.Mjdev.Libaums;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Distribute;
 using System;
 using System.Runtime.Versioning;
 using Xamarin.Essentials;
@@ -61,7 +60,6 @@ namespace UsbOtgFileReader
 
             AppCenter.Start(
                 AppCenterAndroidKey,
-                typeof(Distribute),
                 typeof(Crashes));
 
             Platform.Init(this, savedInstanceState);
