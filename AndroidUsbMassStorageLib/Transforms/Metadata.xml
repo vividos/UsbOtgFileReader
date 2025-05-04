@@ -21,13 +21,9 @@
   <!-- remove Close() method that is also present in ICloseable base class -->
   <remove-node path="/api/package[@name='com.github.mjdev.libaums.fs']/interface[@name='UsbFile']/method[@name='close' and count(parameter)=0]" />
 
-  <!-- rename Partition class that has the same name as the containing namespace -->
+  <!-- rename Partition class that has the same name as the containing namespace; fixes warning BG8403 -->
   <attr path="/api/package[@name='com.github.mjdev.libaums.partition']/class[@name='Partition']"
-        name="name">PartitionInfo</attr>
-  <attr path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/method[@name='getPartitions']"
-        name="return">java.util.List&lt;com.github.mjdev.libaums.partition.PartitionInfo&gt;</attr>
-  <attr path="/api/package[@name='com.github.mjdev.libaums']/class[@name='UsbMassStorageDevice']/method[@name='setPartitions']/parameter[@name='value']"
-        name="type">java.util.List&lt;com.github.mjdev.libaums.partition.PartitionInfo&gt;</attr>
+        name="managedName">PartitionInfo</attr>
 
   <!-- remove Companion fields and classes -->
   <remove-node path="/api/package/class/field[@name='Companion']" />
