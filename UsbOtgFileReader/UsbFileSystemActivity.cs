@@ -273,15 +273,9 @@ namespace UsbOtgFileReader
         /// <returns>task to wait on</returns>
         private async Task StartFileDownload(IUsbFile usbFile)
         {
-            PermissionStatus status =
-                await Permissions.RequestAsync<Permissions.StorageWrite>();
-
-            if (status != PermissionStatus.Granted)
+            if (!await this.CheckWriteStoragePermission())
             {
-                Toast.MakeText(
-                    this,
-                    Resource.String.download_missing_permission_write_storage,
-                    ToastLength.Short)?.Show();
+                return;
             }
 
             Java.IO.File? downloadsFolder =
@@ -302,6 +296,36 @@ namespace UsbOtgFileReader
 
             var task = new CopyFromUsbToDeviceTask();
             task.Execute(copyParams);
+        }
+
+        /// <summary>
+        /// Checks if the write storage permission was given
+        /// </summary>
+        /// <returns>
+        /// true when download can continue, or false when permission was denied
+        /// </returns>
+        private async Task<bool> CheckWriteStoragePermission()
+        {
+            // on Android 13 and above, requesting the permission always returns Denied
+            if (OperatingSystem.IsAndroidVersionAtLeast(13))
+            {
+                return true;
+            }
+
+            PermissionStatus status =
+                await Permissions.RequestAsync<Permissions.StorageWrite>();
+
+            if (status != PermissionStatus.Granted)
+            {
+                Toast.MakeText(
+                    this,
+                    Resource.String.download_missing_permission_write_storage,
+                    ToastLength.Short)?.Show();
+
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
