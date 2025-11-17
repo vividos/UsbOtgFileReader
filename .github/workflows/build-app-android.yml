@@ -13,14 +13,14 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     - name: Prepare app signing
       uses: timheuer/base64-to-file@v1.2
@@ -33,7 +33,7 @@ jobs:
       run: >
         dotnet publish
         UsbOtgFileReader/UsbOtgFileReader.csproj
-        -f net9.0-android
+        -f net10.0-android
         -p:AndroidKeyStore=true
         -p:AndroidPackageFormats=apk
         -p:AndroidSigningKeyStore=keystore.jks
@@ -45,4 +45,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: APK file
-        path: UsbOtgFileReader/bin/Release/net9.0-android/publish/de.vividos.app.android.usbotgfilereader-Signed.apk
+        path: UsbOtgFileReader/bin/Release/net10.0-android/publish/de.vividos.app.android.usbotgfilereader-Signed.apk
